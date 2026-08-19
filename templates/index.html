@@ -535,21 +535,23 @@
             <div class="mobile-modal-body">
                 <!-- QR Code & Instant Connection Box -->
                 <div class="qr-connection-box">
-                    <div class="qr-code-frame" id="qr-code-container">
-                        <img id="mobile-qr-img" src="" alt="Mobile App QR Code" class="qr-img">
-                        <div class="qr-badge"><i class="fa-solid fa-camera"></i> Scan to Open</div>
+                    <div class="qr-code-frame" id="qr-code-container" style="background:#ffffff; padding:12px; border-radius:16px; display:flex; align-items:center; justify-content:center; min-height:180px; min-width:180px; box-shadow:0 8px 24px rgba(0,0,0,0.25);">
+                        <!-- Rendered by QRCode.js -->
                     </div>
                     <div class="qr-instructions">
-                        <h4>Scan with Phone Camera</h4>
-                        <p>Point your mobile camera at this QR code to instantly open the application on your smartphone.</p>
+                        <h4><i class="fa-solid fa-qrcode" style="color:var(--primary);"></i> Scan with Phone Camera</h4>
+                        <p>Point your smartphone camera or Google Lens at this QR code to instantly open and run Bovista on your mobile device.</p>
                         
                         <div class="network-url-box">
-                            <span class="url-label">Mobile Web URL:</span>
+                            <span class="url-label">Direct Mobile Link:</span>
                             <div class="url-input-group">
-                                <input type="text" id="mobile-network-url" readonly value="http://10.170.13.60:5000">
-                                <button type="button" class="btn btn-sm btn-secondary" id="copy-url-btn" title="Copy URL">
+                                <input type="text" id="mobile-network-url" readonly value="">
+                                <button type="button" class="btn btn-sm btn-secondary" id="copy-url-btn" title="Copy Link">
                                     <i class="fa-solid fa-copy"></i>
                                 </button>
+                                <a href="#" target="_blank" class="btn btn-sm btn-primary" id="open-mobile-link-btn" title="Open Link Directly">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -558,7 +560,7 @@
                 <!-- Direct Download & Install Action Bar -->
                 <div class="mobile-action-buttons">
                     <button type="button" class="btn btn-primary btn-install-pwa" id="pwa-install-btn">
-                        <i class="fa-brands fa-android"></i> <span>Tap to Install on Android / Phone</span>
+                        <i class="fa-brands fa-android"></i> <span>Install App on Smartphone (PWA)</span>
                     </button>
                 </div>
 
@@ -640,6 +642,7 @@
     </nav>
 
     <!-- Scripts -->
+    <script src="/static/js/qrcode.min.js"></script>
     <script src="/static/js/app.js"></script>
 </body>
 </html>

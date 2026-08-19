@@ -622,9 +622,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const mobileDownloadModal = document.getElementById("mobile-download-modal");
     const closeDownloadModalBtn = document.getElementById("close-download-modal-btn");
     const closeModalOverlay = document.getElementById("close-modal-overlay");
-    const mobileQrImg = document.getElementById("mobile-qr-img");
+    const qrCodeContainer = document.getElementById("qr-code-container");
     const mobileNetworkUrl = document.getElementById("mobile-network-url");
     const copyUrlBtn = document.getElementById("copy-url-btn");
+    const openMobileLinkBtn = document.getElementById("open-mobile-link-btn");
     const pwaInstallBtn = document.getElementById("pwa-install-btn");
     const platTabBtns = document.querySelectorAll(".plat-tab-btn");
     const androidInstallBanner = document.getElementById("android-install-banner");
@@ -632,6 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const bannerCloseBtn = document.getElementById("banner-close-btn");
 
     let deferredPrompt = null;
+    let qrCodeInstance = null;
 
     // Register Service Worker
     if ("serviceWorker" in navigator) {
@@ -668,15 +670,17 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    async function triggerPwaInstall() {
+    function triggerPwaInstall() {
         if (deferredPrompt) {
             deferredPrompt.prompt();
-            const { outcome } = await deferredPrompt.userChoice;
-            console.log(`User install outcome: ${outcome}`);
-            deferredPrompt = null;
-            if (androidInstallBanner) androidInstallBanner.classList.add("hidden");
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === "accepted") {
+                    console.log("User accepted the Bovista install prompt");
+                }
+                deferredPrompt = null;
+            });
         } else {
-            // Open instructions modal with Android tab active
+            // Open instructional modal
             initMobileDownloadInfo();
             mobileDownloadModal.classList.remove("hidden");
             const androidTab = document.querySelector('.plat-tab-btn[data-platform="android"]');
@@ -687,7 +691,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (pwaInstallBtn) pwaInstallBtn.addEventListener("click", triggerPwaInstall);
     if (bannerInstallBtn) bannerInstallBtn.addEventListener("click", triggerPwaInstall);
 
-    // Fetch and initialize Mobile Connection Details
+    // Fetch and initialize Mobile Connection Details & Render QR
     async function initMobileDownloadInfo() {
         try {
             let mobileUrl = window.location.origin;
@@ -702,16 +706,46 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mobileNetworkUrl) {
                 mobileNetworkUrl.value = mobileUrl;
             }
+            if (openMobileLinkBtn) {
+                openMobileLinkBtn.href = mobileUrl;
+            }
 
-            // Generate high-resolution QR code
-            if (mobileQrImg) {
-                mobileQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(mobileUrl)}&bgcolor=ffffff&color=0a0f18&margin=4`;
+            // Render high-resolution QR code directly in client (offline-ready)
+            if (qrCodeContainer) {
+                qrCodeContainer.innerHTML = "";
+                if (typeof QRCode !== "undefined") {
+                    qrCodeInstance = new QRCode(qrCodeContainer, {
+                        text: mobileUrl,
+                        width: 160,
+                        height: 160,
+                        colorDark: "#0a0f18",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.M
+                    });
+                } else {
+                    // Fallback to online image if library is loading
+                    const qrImg = document.createElement("img");
+                    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=${encodeURIComponent(mobileUrl)}&bgcolor=ffffff&color=0a0f18&margin=4`;
+                    qrImg.alt = "Bovista Mobile QR Code";
+                    qrImg.style.width = "160px";
+                    qrImg.style.height = "160px";
+                    qrCodeContainer.appendChild(qrImg);
+                }
             }
         } catch (err) {
+            console.error("Error initializing mobile download info:", err);
             const fallbackUrl = window.location.origin;
             if (mobileNetworkUrl) mobileNetworkUrl.value = fallbackUrl;
-            if (mobileQrImg) {
-                mobileQrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(fallbackUrl)}`;
+            if (openMobileLinkBtn) openMobileLinkBtn.href = fallbackUrl;
+            if (qrCodeContainer && typeof QRCode !== "undefined") {
+                qrCodeContainer.innerHTML = "";
+                new QRCode(qrCodeContainer, {
+                    text: fallbackUrl,
+                    width: 160,
+                    height: 160,
+                    colorDark: "#0a0f18",
+                    colorLight: "#ffffff"
+                });
             }
         }
     }
