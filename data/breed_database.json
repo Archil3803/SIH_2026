@@ -1,0 +1,1383 @@
+{
+  "ayrshire_cattle": {
+    "id": "ayrshire_cattle",
+    "name": "Ayrshire Cattle",
+    "scientific_name": "Bos taurus",
+    "category": "Cattle",
+    "sub_category": "Dairy Cattle",
+    "origin": "Ayrshire, South West Scotland",
+    "native_region": "Temperate & Highland regions (Widely adapted in India, UK, USA, Australia)",
+    "description": "Ayrshire is a world-renowned dairy cattle breed recognized for its hardiness, efficient foraging ability, low calf mortality, and outstanding udder conformation. They produce milk with ideal butterfat-to-protein ratios, making it exceptional for cheese and dairy processing.",
+    "physical_traits": {
+      "coat_color": "Distinct reddish-brown/mahogany and white patches with clear boundaries",
+      "horns": "Lyre-shaped or upward-curving horns (often dehorned in modern dairy farms)",
+      "body_weight": {
+        "female_adult_kg": "450 - 600 kg",
+        "male_adult_kg": "700 - 900 kg"
+      },
+      "body_structure": "Medium-sized, robust dairy conformation with well-attached, balanced udders and strong legs",
+      "temperament": "Alert, active, and gentle if handled regularly",
+      "climate_resilience": "High tolerance to cold and wet climates; moderate heat tolerance with proper shade and cooling"
+    },
+    "lifespan": {
+      "average_lifespan_years": "15 - 20 years",
+      "productive_lactation_years": "10 - 14 years (typically 6 - 8 lactations)",
+      "age_at_first_calving_months": "24 - 28 months",
+      "calving_interval_months": "12 - 14 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "18 - 28 liters/day",
+      "lactation_yield_liters": "5,500 - 7,500 liters/lactation (305 days)",
+      "peak_yield_liters": "32 - 38 liters/day",
+      "fat_percentage": "3.8% - 4.2%",
+      "snf_percentage": "8.8% - 9.2%",
+      "protein_percentage": "3.2% - 3.5%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "Predominantly A2/A1 mixed (high frequency of A2 alleles)",
+      "fat_globule_size": "Small to medium fat globules, easily digestible",
+      "suitability": "Ideal for drinking milk, premium cheddar cheese, butter, and cultured yogurts",
+      "somatic_cell_count": "Naturally low due to excellent udder health and mastitis resistance",
+      "nutritional_highlights": "Rich in calcium, phosphorus, essential amino acids, and riboflavin"
+    },
+    "possible_diseases": [
+      {
+        "name": "Subclinical & Clinical Mastitis",
+        "severity": "Medium",
+        "symptoms": "Swelling/heat in quarter, clotted or watery milk, drop in yield, fever",
+        "risk_factors": "Poor milking hygiene, wet bedding, teat injuries"
+      },
+      {
+        "name": "Milk Fever (Hypocalcemia)",
+        "severity": "High",
+        "symptoms": "Post-calving weakness, inability to stand (downer cow), cold ears, muscle tremors",
+        "risk_factors": "Sudden calcium drain at onset of heavy lactation"
+      },
+      {
+        "name": "Ketosis (Acetonemia)",
+        "severity": "Medium",
+        "symptoms": "Sweet acetone breath, rapid weight loss, dullness, loss of appetite for concentrates",
+        "risk_factors": "Negative energy balance in early peak lactation"
+      },
+      {
+        "name": "Foot Rot & Lameness",
+        "severity": "Medium",
+        "symptoms": "Limping, swollen interdigital space, foul-smelling hoof discharge",
+        "risk_factors": "Wet concrete floors, muddy paddocks, lack of regular hoof trimming"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "Critical",
+        "symptoms": "Blisters/vesicles on tongue, gums, teats, and interdigital space; profuse salivation, high fever",
+        "risk_factors": "Airborne viral spread, unvaccinated herd contact"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For milk fever: Immediately administer slow IV Calcium Borogluconate (450ml) under veterinary guidance. For bloat: Administer 50ml bloat-cure oil or vegetable oil with turpentine.",
+      "veterinary_medicines": [
+        "Intramammary Ceftiofur / Cloxacillin for mastitis after CMT test",
+        "NSAID (Meloxicam 0.5 mg/kg) + Flunixin Meglumine for inflammation and fever reduction",
+        "Propylene Glycol oral drench (250-300 ml twice daily for 3 days) for Ketosis",
+        "Oxytetracycline / Penicillin-Streptomycin for bacterial hoof infections & systemic infections"
+      ],
+      "supportive_care": "Provide electrolyte drench, liver tonic (BroTone/Liv52), and rumen buffer (Sodium bicarbonate 50-100g daily in feed).",
+      "ethnoveterinary_remedies": "For mild mastitis/udder swelling: Aloe vera (250g) + Turmeric powder (50g) + Lime (15g) ground into paste and applied externally on udder 3 times daily after milking."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "Foot and Mouth Disease (FMD) Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "2 ml or 3 ml Deep Intramuscular / Subcutaneous",
+        "importance": "Mandatory national disease eradication protocol"
+      },
+      {
+        "vaccine": "Hemorrhagic Septicemia (HS) Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Crucial before wet season in tropical/subtropical climates"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Prevents sudden fatal clostridial myositis"
+      },
+      {
+        "vaccine": "Brucellosis (Calfhood S19 / RB51)",
+        "timing": "Once in lifetime for female calves (4 - 8 months)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Prevents abortion in 3rd trimester and zoonotic transmission"
+      },
+      {
+        "vaccine": "Theileriosis Vaccine",
+        "timing": "Annual (Calves > 2 months and before tick season)",
+        "dose_route": "3 ml Subcutaneous",
+        "importance": "Protects exotic/crossbred cattle against deadly tick-borne blood parasites"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹60,000 - ₹1,20,000",
+      "currency_usd": "$750 - $1,500",
+      "milking_cow_price_inr": "₹75,000 - ₹1,15,000 (Based on daily yield >20L)",
+      "pregnant_heifer_price_inr": "₹55,000 - ₹85,000",
+      "pedigree_bull_price_inr": "₹90,000 - ₹1,50,000",
+      "economic_roi": "High profitability in commercial dairy due to low veterinary expenses, high feed conversion efficiency, and strong milk demand."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "25 - 35 kg/day (Maize, Napier, Berseem, Lucerne)",
+        "dry_fodder_kg": "5 - 7 kg/day (Paddy straw, Wheat straw)",
+        "concentrate_feed_kg": "1 kg per 2.5 - 3.0 liters of milk yield + 1.5 kg maintenance feed",
+        "mineral_mixture_grams": "50 - 80 g/day with chelated trace minerals",
+        "salt_grams": "30 - 50 g/day",
+        "clean_drinking_water_liters": "80 - 120 liters/day"
+      },
+      "housing_and_shed_design": "Loose housing with covered stall (40-50 sq.ft per cow) and open paddock (80-100 sq.ft). Concrete non-slip flooring with 1:40 slope towards drainage.",
+      "summer_heat_management": "Install ceiling fans, foggers/misters when ambient temp exceeds 30°C. Paint shed roof with reflective white lime wash.",
+      "milking_hygiene_protocol": "Pre-milking teat dip with 0.5% iodine solution, wipe dry with individual paper towel, discard first 2 milk streams into strip cup, post-milking teat dip with barrier sealant."
+    }
+  },
+
+  "brown_swiss_cattle": {
+    "id": "brown_swiss_cattle",
+    "name": "Brown Swiss Cattle",
+    "scientific_name": "Bos taurus",
+    "category": "Cattle",
+    "sub_category": "Dual-Purpose & Dairy Cattle",
+    "origin": "Alpine slopes of Switzerland",
+    "native_region": "Global (Switzerland, USA, Germany, Italy, India, Latin America)",
+    "description": "Brown Swiss is one of the oldest and most versatile dairy breeds in the world. Renowned for calm temperament, strong hooves, outstanding longevity, and milk with an exceptional protein-to-fat ratio that delivers the world's highest cheese yields.",
+    "physical_traits": {
+      "coat_color": "Solid brown ranging from light grayish-fawn to deep dark chocolate with a creamy white muzzle ring",
+      "horns": "Short, curved forward with black tips",
+      "body_weight": {
+        "female_adult_kg": "550 - 750 kg",
+        "male_adult_kg": "850 - 1,100 kg"
+      },
+      "body_structure": "Heavy-boned, deep-chested, muscular frame with thick hide, robust legs, and black sound hooves",
+      "temperament": "Extremely docile, placid, and tolerant",
+      "climate_resilience": "Superb cold tolerance and surprisingly high heat resilience due to dark pigmented skin and thick hide"
+    },
+    "lifespan": {
+      "average_lifespan_years": "16 - 22 years (among the longest lived dairy cattle)",
+      "productive_lactation_years": "12 - 16 years (often completing 8 - 10 lactations)",
+      "age_at_first_calving_months": "26 - 30 months",
+      "calving_interval_months": "12.5 - 14 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "20 - 32 liters/day",
+      "lactation_yield_liters": "6,500 - 9,000 liters/lactation (305 days)",
+      "peak_yield_liters": "35 - 42 liters/day",
+      "fat_percentage": "4.0% - 4.5%",
+      "snf_percentage": "9.0% - 9.4%",
+      "protein_percentage": "3.5% - 3.8%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "Very high frequency of Kappa-Casein BB genotype (optimal for cheese curd firming) and A2 allele",
+      "fat_globule_size": "Uniform medium fat globules",
+      "suitability": "World benchmark for Gruyère, Emmental, and specialty alpine cheeses, paneer, and butter",
+      "somatic_cell_count": "Exceptionally low due to robust natural immunity",
+      "nutritional_highlights": "High protein content, rich in conjugated linoleic acid (CLA) and bioavailable minerals"
+    },
+    "possible_diseases": [
+      {
+        "name": "Subacute Rumen Acidosis (SARA)",
+        "severity": "Medium",
+        "symptoms": "Variable feed intake, loose bubbly dung, reduced fat test, cud-chewing drop",
+        "risk_factors": "Excess grain/concentrates with insufficient effective fiber"
+      },
+      {
+        "name": "Retained Placenta & Metritis",
+        "severity": "Medium",
+        "symptoms": "Placenta unexpelled >12 hrs post calving, foul vaginal discharge, fever",
+        "risk_factors": "Dystocia, twin births, selenium/vitamin E deficiency"
+      },
+      {
+        "name": "Bovine Respiratory Disease (BRD)",
+        "severity": "High",
+        "symptoms": "Nasal discharge, shallow rapid breathing, coughing, high fever (>104°F)",
+        "risk_factors": "Poor shed ventilation, sudden temperature fluctuations, transportation stress"
+      },
+      {
+        "name": "Mastitis",
+        "severity": "Medium",
+        "symptoms": "Quarter hardness, flaking milk, drop in yield",
+        "risk_factors": "Unsanitary milking machines, contaminated teat liners"
+      },
+      {
+        "name": "Theileriosis & Babesiosis",
+        "severity": "High",
+        "symptoms": "Swollen superficial lymph nodes, coffee-colored urine (redwater), pale/yellow mucous membranes",
+        "risk_factors": "Heavy infestation of Hyalomma/Rhipicephalus ticks"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For downer cow / acidosis: Administer oral Rumen buffer (Sodium bicarbonate 150g + Magnesium oxide 50g) in 1 liter warm water. For redwater (Babesiosis): Prompt IV Diminazene Aceturate (3.5 mg/kg).",
+      "veterinary_medicines": [
+        "Buparvaquone (2.5 mg/kg IM) for Theileriosis infection",
+        "Enrofloxacin / Marbofloxacin for respiratory tract infections",
+        "PGF2alpha (Dinoprost 25mg IM) for uterine clearance in metritis",
+        "Ceftiofur intramammary infusion for active mastitis"
+      ],
+      "supportive_care": "Iron supplements (Feritas), Vitamin B-Complex with liver extract, rumen-protected choline.",
+      "ethnoveterinary_remedies": "For retained placenta: Boil 500g bamboo leaves + 250g jaggery + 25g ginger in 2 liters water and feed warm."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Every 6 months (Spring & Autumn)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "Core herd health defense"
+      },
+      {
+        "vaccine": "Hemorrhagic Septicemia (HS) Vaccine",
+        "timing": "Annual (Pre-Monsoon)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Protects against Pasteurella multocida"
+      },
+      {
+        "vaccine": "Blackleg (BQ) Vaccine",
+        "timing": "Annual (Pre-Monsoon)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Protects growing heifers and cows"
+      },
+      {
+        "vaccine": "Brucellosis S19",
+        "timing": "4 - 8 months age (Heifers only)",
+        "dose_route": "2 ml Subcutaneous",
+        "importance": "Prevents reproductive wastage"
+      },
+      {
+        "vaccine": "Infectious Bovine Rhinotracheitis (IBR)",
+        "timing": "Annual booster",
+        "dose_route": "2 ml IM / Intranasal",
+        "importance": "Maintains reproductive and respiratory health"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹70,000 - ₹1,40,000",
+      "currency_usd": "$850 - $1,750",
+      "milking_cow_price_inr": "₹85,000 - ₹1,35,000",
+      "pregnant_heifer_price_inr": "₹65,000 - ₹95,000",
+      "pedigree_bull_price_inr": "₹1,00,000 - ₹1,80,000",
+      "economic_roi": "Exceptional lifetime return on investment due to prolonged productive years, high cull value, and premium cheese milk pricing."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "30 - 40 kg/day (Sorghum, Hybrid Napier, Cowpea, Alfalfa)",
+        "dry_fodder_kg": "6 - 8 kg/day (Wheat straw, Oat straw)",
+        "concentrate_feed_kg": "1 kg per 2.5 liters milk yield + 2 kg maintenance",
+        "mineral_mixture_grams": "60 - 100 g/day",
+        "salt_grams": "40 - 60 g/day",
+        "clean_drinking_water_liters": "90 - 140 liters/day"
+      },
+      "housing_and_shed_design": "Head-to-head or tail-to-tail modern barn design. 50-60 sq.ft covered floor per cow with rubber bedding mats to preserve joint and hoof longevity.",
+      "summer_heat_management": "Adequate ridge ventilation in barn roof. Provide high-volume low-speed (HVLS) fans and shade cloth in loafing yards.",
+      "milking_hygiene_protocol": "Automatic machine milking at 42-44 kPa vacuum with proper pulsation ratio (60:40). Teat disinfection before and after milking."
+    }
+  },
+
+  "holstein_friesian_cattle": {
+    "id": "holstein_friesian_cattle",
+    "name": "Holstein Friesian Cattle",
+    "scientific_name": "Bos taurus",
+    "category": "Cattle",
+    "sub_category": "High-Yield Dairy Cattle",
+    "origin": "North Holland and Friesland, Netherlands",
+    "native_region": "Global benchmark dairy breed (Extensively utilized across India, North America, Europe, Asia)",
+    "description": "Holstein Friesian (HF) is the undisputed global leader in milk production volume. Known for their distinct piebald black-and-white coat, large frame, and unmatched genetic dairy capacity, making them the primary breed for commercial high-output dairy enterprises.",
+    "physical_traits": {
+      "coat_color": "Striking piebald pattern of black and white patches (or occasionally red and white)",
+      "horns": "Short, curved inward (almost universally polled or disbudded as calves)",
+      "body_weight": {
+        "female_adult_kg": "600 - 750 kg",
+        "male_adult_kg": "900 - 1,200 kg"
+      },
+      "body_structure": "Large angular dairy wedge frame, wide pelvis, prominent dairy ribs, capacious udder with well-spaced teats",
+      "temperament": "Docile, gentle, and food-motivated",
+      "climate_resilience": "Sensitive to tropical heat and humidity; requires climate-controlled sheds or active cooling in hot climates"
+    },
+    "lifespan": {
+      "average_lifespan_years": "12 - 16 years",
+      "productive_lactation_years": "6 - 10 years (typically 4 - 6 intense commercial lactations)",
+      "age_at_first_calving_months": "23 - 26 months",
+      "calving_interval_months": "13 - 15 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "25 - 45 liters/day (High-pedigree cows can exceed 50 L/day)",
+      "lactation_yield_liters": "8,000 - 12,500 liters/lactation (305 days)",
+      "peak_yield_liters": "40 - 55 liters/day",
+      "fat_percentage": "3.2% - 3.8%",
+      "snf_percentage": "8.5% - 8.9%",
+      "protein_percentage": "3.0% - 3.3%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "Predominantly A1 beta-casein (crosses and selected lines feature A2)",
+      "fat_globule_size": "Small fat globules, excellent emulsion stability",
+      "suitability": "Ideal for liquid pasteurized milk distribution, milk powder, condensed milk, and ice cream",
+      "somatic_cell_count": "Requires strict monitoring due to high milk flow vulnerability",
+      "nutritional_highlights": "Maximum volume of essential dairy nutrients, calcium, and milk sugars"
+    },
+    "possible_diseases": [
+      {
+        "name": "Clinical & Toxic Mastitis (E. coli / Klebsiella)",
+        "severity": "Critical",
+        "symptoms": "Hard swollen hot udder, watery yellowish secretion, systemic toxemia, high fever, recumbency",
+        "risk_factors": "High milk yield pressure, leaky teat sphincters, muddy bedding"
+      },
+      {
+        "name": "Severe Heat Stress & Hyperthermia",
+        "severity": "High",
+        "symptoms": "Open-mouth panting, tongue protrusion, drooling, rectal temp >104°F, 30-50% milk drop",
+        "risk_factors": "High metabolic heat generation combined with ambient temp >28°C and humidity"
+      },
+      {
+        "name": "Displaced Abomasum (LDA / RDA)",
+        "severity": "Critical",
+        "symptoms": "Ping sound on left flank auscultation, anorexia, drop in milk, ketosis signs",
+        "risk_factors": "Rapid rumen shrinkage post calving, sudden dietary change"
+      },
+      {
+        "name": "Milk Fever & Downer Syndrome",
+        "severity": "High",
+        "symptoms": "S-shaped neck curvature, muscle twitching, hypothermia, sternal recumbency",
+        "risk_factors": "Massive calcium transfer into colostrum at peak freshening"
+      },
+      {
+        "name": "Laminitis & Sole Ulcers",
+        "severity": "High",
+        "symptoms": "Reluctance to walk, arched back posture, hemorrhage in sole horn",
+        "risk_factors": "Prolonged standing on unpadded concrete, high starch acidosis"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For toxic mastitis: Immediate IV hypertonic saline (7.2% NaCl, 2-3 liters) + IV Flunixin Meglumine + frequent quarter stripping. For heat stress: Immediate direct water soaking on head/spine and high-velocity fan air.",
+      "veterinary_medicines": [
+        "IV Ceftiofur Sodium (2.2 mg/kg) / Marbofloxacin for systemic infections",
+        "Calcium Borogluconate 450ml IV + 450ml SC for hypocalcemia",
+        "Dextrose 20-50% IV for acute hypoglycemia/ketosis",
+        "Intramammary broad-spectrum amoxicillin-clavulanate"
+      ],
+      "supportive_care": "Rumen yeast cultures (Saccharomyces cerevisiae), Niacin (6g/day), Biotin (20mg/day for hoof hardness), DCAD salt balancing in pre-calving diet.",
+      "ethnoveterinary_remedies": "For cooling: Give oral drink of fennel seed (100g) + sugar candy (200g) + vetiver root water during peak noon heat."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "FMD Trivalent / Quadrivalent Vaccine",
+        "timing": "Every 6 months (Bi-annual strict)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "HF cows suffer devastating 80%+ milk loss if infected with FMD"
+      },
+      {
+        "vaccine": "Hemorrhagic Septicemia (HS) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Deadly Pasteurellosis prevention"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Clostridial protection"
+      },
+      {
+        "vaccine": "Brucella abortus (S19 or RB51)",
+        "timing": "Calfhood 4 - 8 months",
+        "dose_route": "2 ml SC",
+        "importance": "Mandatory herd biosecurity"
+      },
+      {
+        "vaccine": "Theileriosis (Rakshavac-T)",
+        "timing": "Annual (before summer/monsoon)",
+        "dose_route": "3 ml SC",
+        "importance": "Vital for exotic HF purebreds and crossbreds"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹65,000 - ₹1,50,000",
+      "currency_usd": "$800 - $1,850",
+      "milking_cow_price_inr": "₹80,000 - ₹1,45,000 (Based on 25-35L proven daily yield)",
+      "pregnant_heifer_price_inr": "₹60,000 - ₹95,000",
+      "pedigree_bull_price_inr": "₹1,20,000 - ₹2,50,000",
+      "economic_roi": "Maximum gross daily revenue in dairy farming due to massive volume; requires proactive management to maintain low veterinary overhead."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "35 - 50 kg/day (High-energy Maize, Corn silage, Sorghum, Berseem)",
+        "dry_fodder_kg": "5 - 8 kg/day (Wheat straw, Rhodes grass hay)",
+        "concentrate_feed_kg": "1 kg per 2.0 - 2.5 liters milk + 2.5 kg maintenance (Total 10 - 15 kg/day for high yielders)",
+        "mineral_mixture_grams": "100 - 150 g/day with chelated zinc, copper, chromium",
+        "salt_grams": "50 - 80 g/day",
+        "clean_drinking_water_liters": "120 - 180 liters/day (Continuous ad-libitum access)"
+      },
+      "housing_and_shed_design": "Modern ventilated shed with minimum 12-14 ft height, open sides, insulated thermal roof, 60-70 sq.ft covered space, heavy-duty 25mm rubber mats or deep sand bedding.",
+      "summer_heat_management": "Compulsory sprinkler/soaker lines over the feed alley running 1 min on / 4 mins off, synchronized with 36-inch industrial fans.",
+      "milking_hygiene_protocol": "Automatic CIP (Clean-In-Place) sanitized pipeline milking parlor. Strict pre-dip, 60-second contact time, dry wipe, post-dip."
+    }
+  },
+
+  "jersey_cattle": {
+    "id": "jersey_cattle",
+    "name": "Jersey Cattle",
+    "scientific_name": "Bos taurus",
+    "category": "Cattle",
+    "sub_category": "High-Fat Dairy Cattle",
+    "origin": "Island of Jersey, British Channel Islands",
+    "native_region": "Worldwide (Highly popular in India, USA, New Zealand, UK, Denmark)",
+    "description": "Jersey cattle are renowned for their compact, graceful size, distinctive fawn coat, large expressive eyes, and milk of unrivaled nutritional density with the highest butterfat and protein percentages among major dairy breeds. They are exceptionally heat tolerant and feed efficient.",
+    "physical_traits": {
+      "coat_color": "Light fawn to mulberry or dark chestnut brown, often with dark face shading and white muzzle ring",
+      "horns": "Short, curved upward with dark tips (often disbudded)",
+      "body_weight": {
+        "female_adult_kg": "380 - 500 kg",
+        "male_adult_kg": "600 - 800 kg"
+      },
+      "body_structure": "Compact, refined dairy conformation, fine bone structure, well-attached udder, dished facial profile",
+      "temperament": "Very gentle, curious, and friendly (Bulls can be territorial)",
+      "climate_resilience": "Outstanding heat tolerance compared to other European breeds; performs excellently in tropical and subtropical Indian climates"
+    },
+    "lifespan": {
+      "average_lifespan_years": "15 - 20 years",
+      "productive_lactation_years": "10 - 14 years (frequently completes 7 - 9 lactations)",
+      "age_at_first_calving_months": "22 - 25 months (earliest maturing dairy breed)",
+      "calving_interval_months": "12 - 13 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "15 - 25 liters/day",
+      "lactation_yield_liters": "4,500 - 6,500 liters/lactation (305 days)",
+      "peak_yield_liters": "28 - 35 liters/day",
+      "fat_percentage": "4.8% - 5.8% (Highest among cattle breeds)",
+      "snf_percentage": "9.2% - 9.8%",
+      "protein_percentage": "3.8% - 4.2%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "Predominantly A2 beta-casein (over 70-80% of Jersey population carries A2A2 genes)",
+      "fat_globule_size": "Large butterfat globules with rich golden-yellow tint due to high beta-carotene",
+      "suitability": "World's best milk for artisan butter, premium ghee, ice cream, rich curds, and specialty cheeses",
+      "somatic_cell_count": "Low; resilient udder morphology",
+      "nutritional_highlights": "20% more calcium and 18% more protein per glass compared to average commercial milk"
+    },
+    "possible_diseases": [
+      {
+        "name": "Milk Fever (Severe Hypocalcemia)",
+        "severity": "Critical",
+        "symptoms": "Sudden onset paralysis within 24-48 hrs of calving, head turned into flank, hypothermia, bloat",
+        "risk_factors": "High Jersey genetic predisposition due to extreme calcium-rich colostrum production"
+      },
+      {
+        "name": "Subclinical Mastitis",
+        "severity": "Medium",
+        "symptoms": "High electrical conductivity in milk, slight flake formation, somatic cell elevation",
+        "risk_factors": "High vacuum in milking machines, cracked teats"
+      },
+      {
+        "name": "Theileriosis & Tick-Borne Anemia",
+        "severity": "High",
+        "symptoms": "High fever, lymph node enlargement, pale gums, anorexia",
+        "risk_factors": "Tick bites in un-dipped/un-sprayed herds"
+      },
+      {
+        "name": "Foot Rot & Interdigital Dermatitis",
+        "severity": "Medium",
+        "symptoms": "Lameness, swelling between claws, reluctance to walk to feed bunk",
+        "risk_factors": "Standing in manure-soiled damp alleys"
+      },
+      {
+        "name": "FMD (Foot and Mouth Disease)",
+        "severity": "Critical",
+        "symptoms": "Mouth blisters, foot lesions, high fever, abrupt cessation of lactation",
+        "risk_factors": "Direct viral contact with infected livestock"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For Milk Fever: Administer 450ml IV Calcium Borogluconate slowly over 15 minutes, followed by 450ml SC. For acute mastitis: Intramammary antibiotic infusion + anti-inflammatory injection.",
+      "veterinary_medicines": [
+        "Oral Calcium gels (Calfostonic / Cal-D-Gel) given 24h before calving and immediately post-calving to prevent downer state",
+        "Buparvaquone (2.5 mg/kg IM) for Theileriosis",
+        "Meloxicam / Tolfenamic acid for pain and anti-inflammatory relief",
+        "Ceftiofur / Amoxicillin for systemic bacterial infections"
+      ],
+      "supportive_care": "Provide Vitamin D3 injections prior to calving to enhance intestinal calcium absorption; feed anionic salts in dry period.",
+      "ethnoveterinary_remedies": "For udder care: Mix coconut oil (100ml) with camphor (10g) and apply gently on swollen teats after milking."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annual (March & September)",
+        "dose_route": "2 ml IM/SC",
+        "importance": "Mandatory protection"
+      },
+      {
+        "vaccine": "Hemorrhagic Septicemia (HS)",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Prevents acute respiratory septicemia"
+      },
+      {
+        "vaccine": "Black Quarter (BQ)",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Essential clostridial immunity"
+      },
+      {
+        "vaccine": "Brucellosis S19 Strain",
+        "timing": "Calfhood (4-8 months)",
+        "dose_route": "2 ml SC",
+        "importance": "Lifetime protection for breeding heifers"
+      },
+      {
+        "vaccine": "Theileriosis Vaccine",
+        "timing": "Annual",
+        "dose_route": "3 ml SC",
+        "importance": "Vital for crossbred/purebred Jersey in India"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹50,000 - ₹1,10,000",
+      "currency_usd": "$600 - $1,350",
+      "milking_cow_price_inr": "₹65,000 - ₹1,00,000 (Based on high fat content >5.0%)",
+      "pregnant_heifer_price_inr": "₹45,000 - ₹75,000",
+      "pedigree_bull_price_inr": "₹80,000 - ₹1,40,000",
+      "economic_roi": "Exceptional profitability for dairy farmers selling milk based on Fat & SNF pricing models; lower feed consumption per liter than HF."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "25 - 32 kg/day (Lucerne, Cowpea, Napier, Maize)",
+        "dry_fodder_kg": "4 - 6 kg/day (Wheat straw, Rice straw)",
+        "concentrate_feed_kg": "1 kg per 2.0 liters milk + 1.5 kg maintenance feed",
+        "mineral_mixture_grams": "50 - 75 g/day",
+        "salt_grams": "30 - 45 g/day",
+        "clean_drinking_water_liters": "60 - 90 liters/day"
+      },
+      "housing_and_shed_design": "Compact shed space (35-45 sq.ft covered area). Good cross-ventilation, brick-on-edge or grooved concrete floor, dry straw or sand bedding.",
+      "summer_heat_management": "Natural shade trees or mesh netting around shed. Jerseys handle heat well but benefit from roof sprinklers when temperature exceeds 36°C.",
+      "milking_hygiene_protocol": "Gentle hand or machine milking at 38-40 kPa vacuum. Iodine barrier teat dip after each milking session."
+    }
+  },
+
+  "red_dane_cattle": {
+    "id": "red_dane_cattle",
+    "name": "Red Dane Cattle",
+    "scientific_name": "Bos taurus",
+    "category": "Cattle",
+    "sub_category": "Dairy & Dual-Purpose Cattle",
+    "origin": "Denmark (Red Danish Dairy Breed)",
+    "native_region": "Denmark, Baltic States, India (Extensively used in Indo-Danish Crossbreeding Projects)",
+    "description": "Red Dane (Red Danish) is a distinguished European dairy breed characterized by its solid deep red coat, sturdy constitution, exceptional disease resistance, and high milk yield with superior protein and fat balance. Widely utilized in Indian dairy improvement programs.",
+    "physical_traits": {
+      "coat_color": "Solid deep red to dark reddish-brown with uniform shade",
+      "horns": "Short, yellowish with dark tips, turning forwards and upwards",
+      "body_weight": {
+        "female_adult_kg": "550 - 680 kg",
+        "male_adult_kg": "850 - 1,050 kg"
+      },
+      "body_structure": "Deep, wide, muscular frame with strong legs, sound dark hooves, and well-attached capacious udder",
+      "temperament": "Docile, calm, and easily manageable",
+      "climate_resilience": "High adaptability to diverse climates; crossbreds thrive exceptionally well in Indian agro-climatic zones"
+    },
+    "lifespan": {
+      "average_lifespan_years": "15 - 19 years",
+      "productive_lactation_years": "10 - 13 years (typically 6 - 8 lactations)",
+      "age_at_first_calving_months": "25 - 28 months",
+      "calving_interval_months": "12.5 - 13.5 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "18 - 30 liters/day",
+      "lactation_yield_liters": "6,000 - 8,500 liters/lactation (305 days)",
+      "peak_yield_liters": "32 - 40 liters/day",
+      "fat_percentage": "4.1% - 4.6%",
+      "snf_percentage": "8.9% - 9.3%",
+      "protein_percentage": "3.4% - 3.7%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "High frequency of A2 alleles and Kappa Casein B allele",
+      "fat_globule_size": "Medium-sized fat globules, rich aroma",
+      "suitability": "Outstanding for butter, artisanal hard cheeses, curd, paneer, and liquid milk consumption",
+      "somatic_cell_count": "Remarkably low; highly resistant to udder infections",
+      "nutritional_highlights": "High protein and essential mineral density with favorable fatty acid profile"
+    },
+    "possible_diseases": [
+      {
+        "name": "Mastitis",
+        "severity": "Medium",
+        "symptoms": "Firm quarter swelling, flakes in foremilk, tenderness",
+        "risk_factors": "Improper teat dipping, dirty stalls"
+      },
+      {
+        "name": "Rumen Impaction / Bloat",
+        "severity": "High",
+        "symptoms": "Distended left flank, grunting, kicking at belly, respiratory distress",
+        "risk_factors": "Overfeeding on wet legumes or spoiled fodder"
+      },
+      {
+        "name": "Milk Fever",
+        "severity": "High",
+        "symptoms": "Post-calving weakness, inability to rise, cold extremities",
+        "risk_factors": "High lactational drain in high-yielding mature cows"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "Critical",
+        "symptoms": "Salivation, oral ulcers, foot vesicles, sudden milk reduction",
+        "risk_factors": "Unvaccinated exposure"
+      },
+      {
+        "name": "Hemorrhagic Septicemia (HS)",
+        "severity": "Critical",
+        "symptoms": "Submandibular edema (throat swelling), high fever (105-107°F), stertorous breathing",
+        "risk_factors": "Monsoon stress, waterlogged environments"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For bloat: Puncture left paralumbar fossa with trocar and cannula if asphyxiation is imminent; administer oral anti-frothing agents (Simethicone / Bloatosil). For milk fever: IV Calcium Borogluconate.",
+      "veterinary_medicines": [
+        "Intramammary Cefquinome / Cloxacillin for mastitis",
+        "Oxytetracycline / Enrofloxacin for systemic bacterial diseases",
+        "Flunixin Meglumine (2.2 mg/kg IV/IM) for fever and endotoxemia",
+        "Stomachic powders (Himalayan Batisa / Ruchamax) for digestive restoration"
+      ],
+      "supportive_care": "Probiotics, B-complex injections, phosphorus supplementation (Tonavet/Tonophosphan).",
+      "ethnoveterinary_remedies": "For digestive upset/bloat: Asafoetida (10g) + Ginger (50g) + Garlic (50g) + Black pepper (20g) ground in warm water and drenched orally."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annually (Every 6 months)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "Essential herd protection"
+      },
+      {
+        "vaccine": "HS Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2 ml SC",
+        "importance": "Mandatory before rainy season"
+      },
+      {
+        "vaccine": "BQ Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2 ml SC",
+        "importance": "Prevents clostridial gangrene"
+      },
+      {
+        "vaccine": "Brucella S19 Vaccine",
+        "timing": "4 - 8 months heifer calves",
+        "dose_route": "2 ml SC",
+        "importance": "Abortion control"
+      },
+      {
+        "vaccine": "Anthrax Vaccine",
+        "timing": "Annual (in endemic areas)",
+        "dose_route": "1 ml SC",
+        "importance": "Deadly spore-forming bacterial prevention"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹60,000 - ₹1,30,000",
+      "currency_usd": "$720 - $1,600",
+      "milking_cow_price_inr": "₹75,000 - ₹1,20,000",
+      "pregnant_heifer_price_inr": "₹55,000 - ₹85,000",
+      "pedigree_bull_price_inr": "₹90,000 - ₹1,60,000",
+      "economic_roi": "High economic stability; excellent health and reproductive longevity translate to very low replacement costs and reliable dairy profits."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "30 - 40 kg/day (Maize, Jowar, Oat, Berseem)",
+        "dry_fodder_kg": "5 - 7 kg/day (Wheat straw, Sorghum stover)",
+        "concentrate_feed_kg": "1 kg per 2.5 liters milk + 2.0 kg maintenance",
+        "mineral_mixture_grams": "60 - 90 g/day",
+        "salt_grams": "40 - 50 g/day",
+        "clean_drinking_water_liters": "80 - 130 liters/day"
+      },
+      "housing_and_shed_design": "Semi-open loose housing shed with 45-55 sq.ft floor space per animal. Elevated concrete feeding mangers with fresh water troughs.",
+      "summer_heat_management": "Provide tree shade and ceiling fans in summer months; spray roofs with water during peak solar radiation.",
+      "milking_hygiene_protocol": "Thorough udder washing with clean lukewarm water, drying with clean cloth, complete milking within 6-7 minutes, post-milking teat dip."
+    }
+  },
+
+  "chhattisgarhi": {
+    "id": "chhattisgarhi",
+    "name": "Chhattisgarhi Buffalo",
+    "scientific_name": "Bubalus bubalis",
+    "category": "Buffalo",
+    "sub_category": "Dual-Purpose & Swamp/River Buffalo",
+    "origin": "Chhattisgarh & adjoining Central Indian plains",
+    "native_region": "Central India (Raipur, Bilaspur, Durg, Rajnandgaon, Bastar)",
+    "description": "Chhattisgarhi buffalo is an indigenous hardy river-swamp buffalo breed of central India. Known for its remarkable heat resilience, ability to thrive on coarse low-quality crop residues, disease resistance, and reliable milk with rich fat content under harsh agro-climatic conditions.",
+    "physical_traits": {
+      "coat_color": "Predominantly black or dark brown; occasional white patches on forehead or switch of tail",
+      "horns": "Medium to large horns curving outwards, backwards, and upwards towards neck",
+      "body_weight": {
+        "female_adult_kg": "400 - 520 kg",
+        "male_adult_kg": "500 - 650 kg"
+      },
+      "body_structure": "Medium compact frame, strong legs, wide chest, deep barrel, hard hooves adapted for muddy paddy fields",
+      "temperament": "Hardy, calm, obedient, and resilient",
+      "climate_resilience": "Superb tolerance to tropical heat, humidity, and monsoon mud; highly resistant to tick infestations"
+    },
+    "lifespan": {
+      "average_lifespan_years": "18 - 25 years (typical of hardy indigenous buffaloes)",
+      "productive_lactation_years": "12 - 16 years (often 7 - 9 lactations)",
+      "age_at_first_calving_months": "38 - 46 months",
+      "calving_interval_months": "14 - 17 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "7 - 14 liters/day (Under improved feeding up to 16 L/day)",
+      "lactation_yield_liters": "1,800 - 3,200 liters/lactation",
+      "peak_yield_liters": "12 - 16 liters/day",
+      "fat_percentage": "7.5% - 8.8% (Very high butterfat yield)",
+      "snf_percentage": "9.5% - 10.2%",
+      "protein_percentage": "3.8% - 4.3%",
+      "lactation_length_days": 280
+    },
+    "milk_quality": {
+      "beta_casein_type": "100% pure A2 beta-casein (Natural indigenous trait)",
+      "fat_globule_size": "Large dense fat globules, pure white color (no beta-carotene in buffalo milk)",
+      "suitability": "World-class for traditional ghee, rich paneer, khoa, rabri, kulfi, and curd (dahi)",
+      "somatic_cell_count": "Extremely low; high natural lysozyme and lactoferrin content",
+      "nutritional_highlights": "High calcium, natural probiotics support, dense caloric value"
+    },
+    "possible_diseases": [
+      {
+        "name": "Hemorrhagic Septicemia (HS / Galghontu)",
+        "severity": "Critical",
+        "symptoms": "Sudden high fever (106°F), severe swelling in throat and neck, snoring breath, tongue protrusion, death within 24-36 hrs",
+        "risk_factors": "Monsoon moisture, high humidity, stress in riverine/marsh areas"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD / Khurpaka-Munhpaka)",
+        "severity": "High",
+        "symptoms": "Drooling ropy saliva, painful foot sores, reluctance to walk in mud, lactation drop",
+        "risk_factors": "Seasonal viral epidemics, lack of vaccination"
+      },
+      {
+        "name": "Trypanosomiasis (Surra)",
+        "severity": "High",
+        "symptoms": "Intermittent fever, nervous signs (circling, head pressing), rapid emaciation, blindness",
+        "risk_factors": "Tabanid fly bites during rainy and post-rainy seasons"
+      },
+      {
+        "name": "Subclinical Mastitis",
+        "severity": "Medium",
+        "symptoms": "Hardness in udder quarter, clot formation in milk, reduced output",
+        "risk_factors": "Improper hand milking (knuckling), dirty wallowing ponds"
+      },
+      {
+        "name": "Black Quarter (BQ / Langda Bukhar)",
+        "severity": "High",
+        "symptoms": "Crepitating (crackling) swelling over heavy muscle (thigh/shoulder), severe lameness, fever",
+        "risk_factors": "Soil-borne Clostridium chauvoei spores entering through minor cuts"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For HS (Galghontu): Immediate emergency veterinary intervention with IV Sulfadimidine (33.3% at 100-150ml) + Oxytetracycline + Dexamethasone to relieve respiratory choking.",
+      "veterinary_medicines": [
+        "Quinapyramine Sulfate and Chloride (3.3 mg/kg SC) / Diminazene for Surra",
+        "Sulfadimidine sodium / Ceftriaxone for acute bacterial septicemia",
+        "Intramammary infusions for mastitis with herbal udder sprays",
+        "Meloxicam + Paracetamol boluses for fever and joint inflammation"
+      ],
+      "supportive_care": "Liver tonic (Liv-52 vet), electrolyte drenches, regular seasonal deworming with Albendazole / Ivermectin.",
+      "ethnoveterinary_remedies": "For mouth sores (FMD): Clean mouth with alum water (10g/L), apply paste of honey + turmeric powder (50g) + coconut oil. For foot wounds: Apply camphor in neem oil."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "Hemorrhagic Septicemia (HS) Alum Precipitated / Oil Adjuvant",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2-3 ml SC",
+        "importance": "Top-priority mandatory vaccine for all buffaloes in central India"
+      },
+      {
+        "vaccine": "Foot and Mouth Disease (FMD) Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "Prevents catastrophic production losses"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Essential protection for young and adult stock"
+      },
+      {
+        "vaccine": "Anthrax Spore Vaccine",
+        "timing": "Annual (Pre-summer in known endemic zones)",
+        "dose_route": "1 ml SC",
+        "importance": "Prevents acute peracute fatal anthrax"
+      },
+      {
+        "vaccine": "Brucella S19 Vaccine",
+        "timing": "Female calves (4-8 months)",
+        "dose_route": "2 ml SC",
+        "importance": "One-time lifetime calfhood vaccination"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹45,000 - ₹95,000",
+      "currency_usd": "$550 - $1,150",
+      "milking_cow_price_inr": "₹55,000 - ₹85,000 (Higher for >10L daily yield)",
+      "pregnant_heifer_price_inr": "₹38,000 - ₹55,000",
+      "pedigree_bull_price_inr": "₹60,000 - ₹1,10,000",
+      "economic_roi": "Extremely cost-effective for smallholder farmers due to negligible maintenance costs, high ghee recovery (8%+ fat), and strong disease resilience."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "20 - 30 kg/day (Paddy straw green forage, Para grass, Hybrid Napier, Maize)",
+        "dry_fodder_kg": "6 - 8 kg/day (Paddy straw, Kodo millet straw)",
+        "concentrate_feed_kg": "1 kg per 2.0 liters of buffalo milk yield + 1.5 kg maintenance (Mustard/Linseed cake, rice bran, chana chuni)",
+        "mineral_mixture_grams": "50 - 70 g/day",
+        "salt_grams": "40 - 50 g/day",
+        "clean_drinking_water_liters": "70 - 100 liters/day"
+      },
+      "housing_and_shed_design": "Semi-pucca open shed with thatched or tile roof for natural insulation. Floor space: 45 sq.ft covered, 90 sq.ft open area.",
+      "summer_heat_management": "Buffaloes have fewer sweat glands; daily water wallowing in clean pond for 1-2 hours or splashing with cold water 2-3 times daily during summer.",
+      "milking_hygiene_protocol": "Full hand milking method (avoid thumb bending), wash udder with potassium permanganate (1:1000) solution, keep calf alongside for letdown if required."
+    }
+  },
+
+  "jaffarabadi": {
+    "id": "jaffarabadi",
+    "name": "Jaffarabadi Buffalo",
+    "scientific_name": "Bubalus bubalis",
+    "category": "Buffalo",
+    "sub_category": "Heavy Dairy Buffalo",
+    "origin": "Gir Forest & Saurashtra, Gujarat",
+    "native_region": "Western India (Junagadh, Amreli, Bhavnagar, Porbandar, Jamnagar in Gujarat)",
+    "description": "Jaffarabadi is the heaviest and most powerful river buffalo breed in the world. Renowned for its massive head with prominent drooping horn crest, immense milk capacity with high butterfat content (>8%), and sheer strength. Known locally as the 'Pride of Gir'.",
+    "physical_traits": {
+      "coat_color": "Deep solid black; occasional small white markings on forehead (known as 'Tika')",
+      "horns": "Heavy, broad, flat horns drooping downwards along the neck and curling upwards at tips like a loose knot",
+      "body_weight": {
+        "female_adult_kg": "600 - 800 kg (Can exceed 850 kg in elite show animals)",
+        "male_adult_kg": "850 - 1,150 kg"
+      },
+      "body_structure": "Massive, deep, and heavy bone structure, wide prominent forehead, dewlap well developed, large pendulous udder",
+      "temperament": "Calm and docile with familiar handlers, fiercely protective of calves",
+      "climate_resilience": "Very hardy in semi-arid and coastal tropical environments; loves water wallowing"
+    },
+    "lifespan": {
+      "average_lifespan_years": "20 - 25 years",
+      "productive_lactation_years": "14 - 18 years (frequently completes 8 - 11 lactations)",
+      "age_at_first_calving_months": "42 - 48 months",
+      "calving_interval_months": "14 - 16 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "15 - 26 liters/day (Elite Jaffarabadi buffaloes record 28 - 32 L/day)",
+      "lactation_yield_liters": "3,200 - 5,500 liters/lactation",
+      "peak_yield_liters": "24 - 30 liters/day",
+      "fat_percentage": "7.8% - 9.5% (Very high butterfat concentration)",
+      "snf_percentage": "9.6% - 10.4%",
+      "protein_percentage": "4.0% - 4.5%",
+      "lactation_length_days": 305
+    },
+    "milk_quality": {
+      "beta_casein_type": "100% pure A2 beta-casein",
+      "fat_globule_size": "Large dense fat globules producing the highest recovery of traditional Gir Ghee",
+      "suitability": "Benchmark for premium Desi Ghee, creamy Mawa/Khoya, thick buffalo curd, Paneer, and Pedas",
+      "somatic_cell_count": "Extremely healthy natural udder defense",
+      "nutritional_highlights": "Exceptional energy density, rich in fat-soluble vitamins A, D, E and bioactive peptides"
+    },
+    "possible_diseases": [
+      {
+        "name": "Uterine & Vaginal Prolapse (Peecha Nikalna)",
+        "severity": "Critical",
+        "symptoms": "Eversion of vaginal wall or uterus post/pre-calving, straining, recumbency",
+        "risk_factors": "Heavy pelvic weight, hormonal relaxation, calcium-phosphorus imbalance, steep shed floor slope"
+      },
+      {
+        "name": "Hemorrhagic Septicemia (HS)",
+        "severity": "Critical",
+        "symptoms": "High fever, throat edema, severe respiratory stertor, rapid death",
+        "risk_factors": "Rainy season, waterlogged pasture, contact with carrier animals"
+      },
+      {
+        "name": "Mastitis (Thela Disease)",
+        "severity": "High",
+        "symptoms": "Swollen hard udder, blood or pus in milk, severe pain during milking",
+        "risk_factors": "Large pendulous udder touching ground, dirty wallowing ponds"
+      },
+      {
+        "name": "Trypanosomiasis (Surra)",
+        "severity": "High",
+        "symptoms": "Intermittent fever, circling gait, progressive anemia, corneal opacity",
+        "risk_factors": "Biting Tabanus flies near coastal water bodies"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "High",
+        "symptoms": "Vesicles in mouth, between hooves, high fever, extreme salivation",
+        "risk_factors": "Direct viral contagion"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For Prolapse: Wash exposed organ immediately with ice-cold normal saline / potassium permanganate solution (1:1000), gently push back in epidural anesthesia and apply Buhner's suture or rope truss. For HS: Immediate IV Sulfadimidine (33.3%) + Ceftriaxone.",
+      "veterinary_medicines": [
+        "Quinapyramine Sulfate/Chloride for Surra",
+        "Intramammary antibiotics (Amoxicillin-Sulbactam) + Serratiopeptidase for acute udder swelling",
+        "Oral calcium-phosphorus supplements (Cal-Up, Ostovet Forte) + Vitamin E & Biotin",
+        "Broad spectrum dewormer (Closantel / Fenbendazole)"
+      ],
+      "supportive_care": "Provide mineral boluses with zinc, cobalt, copper; feed bypass fat (200g/day) during peak lactation.",
+      "ethnoveterinary_remedies": "For prolapse prevention: Feed 100g fenugreek powder (methi) + 50g cumin (jeera) + 200g ghee in jaggery daily during last trimester."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "HS Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2-3 ml SC",
+        "importance": "Top priority in buffalo herds"
+      },
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "3 ml Deep IM",
+        "importance": "Mandatory to prevent milk loss"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Protects growing bulls and heifers"
+      },
+      {
+        "vaccine": "Brucellosis (S19)",
+        "timing": "Female calves at 4-8 months",
+        "dose_route": "2 ml SC",
+        "importance": "Prevents late-stage abortions"
+      },
+      {
+        "vaccine": "Anthrax Vaccine",
+        "timing": "Annual in endemic zones",
+        "dose_route": "1 ml SC",
+        "importance": "Endemic zone security"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹80,000 - ₹2,00,000",
+      "currency_usd": "$950 - $2,400",
+      "milking_cow_price_inr": "₹1,00,000 - ₹1,80,000 (Elite high-yielders exceed ₹2,20,000)",
+      "pregnant_heifer_price_inr": "₹70,000 - ₹1,10,000",
+      "pedigree_bull_price_inr": "₹1,50,000 - ₹3,50,000 (High demand for breeding)",
+      "economic_roi": "Very high economic returns due to immense ghee output (1.5-2x price multiplier in Indian market for pure buffalo ghee)."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "35 - 50 kg/day (Lucerne, Jowar, Maize, Hybrid Napier)",
+        "dry_fodder_kg": "8 - 10 kg/day (Groundnut haulms, Wheat straw, Bajra stover)",
+        "concentrate_feed_kg": "1 kg per 2.0 liters milk + 2.5 kg maintenance (Cottonseed cake, Mustard cake, crushed maize, wheat bran)",
+        "mineral_mixture_grams": "100 - 150 g/day",
+        "salt_grams": "60 - 80 g/day",
+        "clean_drinking_water_liters": "100 - 150 liters/day"
+      },
+      "housing_and_shed_design": "Spacious shed with high roof (14-16 ft) for ventilation. Covered area 60-70 sq.ft per adult animal. Level floor with grooved brick texture to prevent slipping and prolapse.",
+      "summer_heat_management": "Dedicated clean wallowing pool (water depth 3-4 ft) or continuous shower system for 2 hours during peak afternoon.",
+      "milking_hygiene_protocol": "Full hand milking method (stripping only for final drops), warm water udder cleaning, fly repellents around shed."
+    }
+  },
+
+  "marathwada": {
+    "id": "marathwada",
+    "name": "Marathwada Buffalo",
+    "scientific_name": "Bubalus bubalis",
+    "category": "Buffalo",
+    "sub_category": "Draught & Dairy Buffalo",
+    "origin": "Marathwada region, Maharashtra",
+    "native_region": "Central-Western India (Beed, Parbhani, Nanded, Latur, Jalna, Osmanabad in Maharashtra)",
+    "description": "Marathwada buffalo is a hardy, medium-sized indigenous breed adapted to the drought-prone semi-arid Deccan plateau. Known for its distinct long flat sword-shaped horns reaching back to the shoulders, exceptional heat tolerance, low water requirement, and steady milk production on dry fodder.",
+    "physical_traits": {
+      "coat_color": "Predominantly dark brown to black; coat is glossy and sparse-haired",
+      "horns": "Long, flat, sword-shaped horns extending backwards along the sides of the neck, reaching up to the shoulder blades",
+      "body_weight": {
+        "female_adult_kg": "380 - 480 kg",
+        "male_adult_kg": "450 - 580 kg"
+      },
+      "body_structure": "Medium, light, and compact frame, long narrow head, light agile legs with hard compact hooves",
+      "temperament": "Active, docile, very intelligent and adaptable",
+      "climate_resilience": "Superb drought resistance; can endure water scarcity and high ambient temperatures (>44°C) without severe drop in production"
+    },
+    "lifespan": {
+      "average_lifespan_years": "18 - 24 years",
+      "productive_lactation_years": "12 - 16 years (completes 7 - 10 lactations)",
+      "age_at_first_calving_months": "40 - 46 months",
+      "calving_interval_months": "13.5 - 15.5 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "8 - 15 liters/day",
+      "lactation_yield_liters": "1,900 - 3,400 liters/lactation",
+      "peak_yield_liters": "14 - 18 liters/day",
+      "fat_percentage": "7.2% - 8.6%",
+      "snf_percentage": "9.4% - 10.0%",
+      "protein_percentage": "3.8% - 4.2%",
+      "lactation_length_days": 280
+    },
+    "milk_quality": {
+      "beta_casein_type": "100% A2 beta-casein",
+      "fat_globule_size": "Medium to large fat globules",
+      "suitability": "Ideal for traditional Maharashtrian Ghee, Shrikhand, Basundi, Gulab Jamun mawa, and rich tea milk",
+      "somatic_cell_count": "Very low; excellent natural disease resistance",
+      "nutritional_highlights": "Rich in minerals, easily digestible A2 proteins, and high solids content"
+    },
+    "possible_diseases": [
+      {
+        "name": "Hemorrhagic Septicemia (HS)",
+        "severity": "Critical",
+        "symptoms": "High fever, swollen throat, labored breathing, salivation",
+        "risk_factors": "Post-monsoon season, seasonal river bed grazing"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "High",
+        "symptoms": "Ulcers in dental pad, tongue, interdigital clefts, lameness",
+        "risk_factors": "Unvaccinated communal grazing"
+      },
+      {
+        "name": "Mastitis",
+        "severity": "Medium",
+        "symptoms": "Quarter swelling, watery milk, reduction in yield",
+        "risk_factors": "Milking in unpaved dirt stalls"
+      },
+      {
+        "name": "External Parasites (Lice & Ticks)",
+        "severity": "Low",
+        "symptoms": "Skin rubbing, hair loss, restlessness, tick-borne anemia",
+        "risk_factors": "Dry dusty housing"
+      },
+      {
+        "name": "Internal Helminthiasis (Flukes & Roundworms)",
+        "severity": "Medium",
+        "symptoms": "Diarrhea, pot-bellied appearance in calves, submandibular bottle jaw",
+        "risk_factors": "Grazing around drying water tanks"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For HS: Prompt veterinary administration of Sulfadimidine sodium (33.3% IV) + Oxytetracycline. For severe bloat: Administer oral oil with carminatives.",
+      "veterinary_medicines": [
+        "Ivermectin (1 ml / 50 kg SC) for external ticks/lice and internal roundworms",
+        "Triclabendazole / Oxyclozanide for liver fluke in tank-grazing buffaloes",
+        "Intramammary antibiotics for mastitis",
+        "Meloxicam boluses for pain and inflammatory conditions"
+      ],
+      "supportive_care": "Regular mineral mixture supplementation containing zinc, phosphorus, and sulfur; multi-vitamin drench.",
+      "ethnoveterinary_remedies": "For ectoparasites/ticks: Spray paste of Annona squamosa (sitaphal) leaves + neem seed extract (5%) mixed in water."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "HS Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2-3 ml SC",
+        "importance": "Primary disease prevention"
+      },
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "2 ml IM",
+        "importance": "Essential herd biosecurity"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Protects young stock"
+      },
+      {
+        "vaccine": "Brucella S19 Vaccine",
+        "timing": "Calfhood 4-8 months",
+        "dose_route": "2 ml SC",
+        "importance": "Lifetime heifer protection"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹50,000 - ₹1,10,000",
+      "currency_usd": "$600 - $1,350",
+      "milking_cow_price_inr": "₹60,000 - ₹95,000",
+      "pregnant_heifer_price_inr": "₹42,000 - ₹65,000",
+      "pedigree_bull_price_inr": "₹70,000 - ₹1,25,000",
+      "economic_roi": "Ideal for low-input dryland farming systems; high survival rate in drought conditions ensures steady family income."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "20 - 30 kg/day (Jowar, Bajra, Sugarcane tops, Stylo)",
+        "dry_fodder_kg": "6 - 8 kg/day (Jowar kadbi, Soybean straw, Cottonseed hull)",
+        "concentrate_feed_kg": "1 kg per 2.0 liters milk + 1.5 kg maintenance (Cottonseed cake, Gram chuni, wheat bran)",
+        "mineral_mixture_grams": "50 - 80 g/day",
+        "salt_grams": "40 - 50 g/day",
+        "clean_drinking_water_liters": "60 - 90 liters/day"
+      },
+      "housing_and_shed_design": "Low-cost semi-open housing with thatched or asbestos roof with good ventilation. 40-50 sq.ft covered stall area.",
+      "summer_heat_management": "Wallowing in village ponds or spraying with water twice daily; paint roofs white in summer.",
+      "milking_hygiene_protocol": "Full hand milking, teat washing, clean bucket usage, calf suckling for letdown."
+    }
+  },
+
+  "surti": {
+    "id": "surti",
+    "name": "Surti Buffalo",
+    "scientific_name": "Bubalus bubalis",
+    "category": "Buffalo",
+    "sub_category": "Medium Dairy Buffalo",
+    "origin": "Charotar tract (Kaira, Baroda, Anand), Gujarat",
+    "native_region": "Gujarat & Western India (Anand, Kheda, Vadodara, Surat, Bharuch)",
+    "description": "Surti is a medium-sized, economical dairy buffalo breed originating from the fertile Charotar tract of Gujarat (the cradle of India's White Revolution / Amul). Recognised for its unique sickle-shaped flat horns, two white collars ('chevron') on the throat and brisket, high butterfat content (8-9%), and gentle temperament.",
+    "physical_traits": {
+      "coat_color": "Rusty brown to silver-grey or black; distinct white chevron collars on lower jaw/throat and brisket",
+      "horns": "Sickle-shaped, flat, curving downward and backward and then turning upwards at tips",
+      "body_weight": {
+        "female_adult_kg": "400 - 550 kg",
+        "male_adult_kg": "500 - 700 kg"
+      },
+      "body_structure": "Medium, well-proportioned wedge-shaped body, straight back, clean-cut head, well-developed square udder with pinkish skin",
+      "temperament": "Very gentle, calm, and cooperative with farm women and milkers",
+      "climate_resilience": "High tolerance to coastal and irrigated agricultural climates; excellent feed conversion"
+    },
+    "lifespan": {
+      "average_lifespan_years": "18 - 25 years",
+      "productive_lactation_years": "12 - 16 years (typically 7 - 10 lactations)",
+      "age_at_first_calving_months": "38 - 44 months",
+      "calving_interval_months": "13 - 15 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "10 - 18 liters/day",
+      "lactation_yield_liters": "2,400 - 3,800 liters/lactation",
+      "peak_yield_liters": "16 - 20 liters/day",
+      "fat_percentage": "7.5% - 9.2%",
+      "snf_percentage": "9.5% - 10.2%",
+      "protein_percentage": "3.9% - 4.4%",
+      "lactation_length_days": 300
+    },
+    "milk_quality": {
+      "beta_casein_type": "100% pure A2 beta-casein",
+      "fat_globule_size": "Large butterfat globules with rich creamy texture",
+      "suitability": "Premier milk for Amul-grade butter, traditional white ghee, paneer, and rich shrikhand",
+      "somatic_cell_count": "Consistently low; highly resistant to udder infections",
+      "nutritional_highlights": "High protein-to-calorie ratio, rich in bioavailable calcium and natural immunoglobulins"
+    },
+    "possible_diseases": [
+      {
+        "name": "Mastitis",
+        "severity": "Medium",
+        "symptoms": "Hardness in udder, warmth, clotting in milk",
+        "risk_factors": "Dirty stall floors, incomplete milking"
+      },
+      {
+        "name": "Hemorrhagic Septicemia (HS)",
+        "severity": "Critical",
+        "symptoms": "Severe fever, neck swelling, labored breathing, salivation",
+        "risk_factors": "Monsoon humidity, canal-irrigated standing water"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "High",
+        "symptoms": "Oral vesicles, foot sores, drooling, drastic milk loss",
+        "risk_factors": "Viral epidemics"
+      },
+      {
+        "name": "Anestrus & Repeat Breeding",
+        "severity": "Medium",
+        "symptoms": "Silent heat, prolonged non-cycling during summer months",
+        "risk_factors": "Seasonal summer thermal stress, mineral deficiency (phosphorus/zinc)"
+      },
+      {
+        "name": "Trypanosomiasis (Surra)",
+        "severity": "High",
+        "symptoms": "Recurrent fever, emaciation, eye discharge",
+        "risk_factors": "Biting fly season near irrigation canals"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For HS: Emergency Sulfadimidine (33.3% IV) + Flunixin Meglumine. For summer silent heat: Administer oral mineral mixtures + PMSG/GnRH hormone protocol under veterinarian.",
+      "veterinary_medicines": [
+        "Intramammary Ceftiofur / Cloxacillin for mastitis",
+        "Quinapyramine prosalt for Surra prophylaxis and treatment",
+        "GnRH (Buserelin Acetate 2.5 ml IM) + PGF2alpha for estrus synchronization",
+        "Broad-spectrum dewormers (Fenbendazole / Ivermectin)"
+      ],
+      "supportive_care": "Provide Chelated Mineral Mixture (Minfa Gold), Vitamin A, D3, E (Intavita) injections.",
+      "ethnoveterinary_remedies": "For silent heat / estrus induction: Feed sprouted wheat (1 kg/day for 15 days) + aloe vera pulp (150g) + jaggery."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "HS Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2-3 ml SC",
+        "importance": "Mandatory before rainy season"
+      },
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "Prevents catastrophic milk stoppage"
+      },
+      {
+        "vaccine": "Black Quarter (BQ) Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Clostridial immunity"
+      },
+      {
+        "vaccine": "Brucellosis (S19)",
+        "timing": "Female calves at 4-8 months",
+        "dose_route": "2 ml SC",
+        "importance": "One-time lifetime vaccine"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹55,000 - ₹1,20,000",
+      "currency_usd": "$650 - $1,450",
+      "milking_cow_price_inr": "₹65,000 - ₹1,05,000",
+      "pregnant_heifer_price_inr": "₹45,000 - ₹70,000",
+      "pedigree_bull_price_inr": "₹80,000 - ₹1,40,000",
+      "economic_roi": "One of the most cost-effective buffalo breeds in India; economical feed intake with high fat milk yields steady monthly dairy cooperative payouts."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "25 - 35 kg/day (Lucerne, Hybrid Napier, Sorghum, Maize)",
+        "dry_fodder_kg": "5 - 7 kg/day (Paddy straw, Wheat straw, Gotar)",
+        "concentrate_feed_kg": "1 kg per 2.0 liters of milk + 1.5 kg maintenance (Cottonseed cake, maize bran, pulse chuni)",
+        "mineral_mixture_grams": "60 - 90 g/day",
+        "salt_grams": "40 - 50 g/day",
+        "clean_drinking_water_liters": "70 - 110 liters/day"
+      },
+      "housing_and_shed_design": "Semi-covered shed with 40-50 sq.ft covered area. Good ventilation, grooved non-slip flooring with drainage channels.",
+      "summer_heat_management": "Provide afternoon wallowing in clean pond or spray cold water over buffalo body twice daily in summer.",
+      "milking_hygiene_protocol": "Full hand milking method, teat sanitization before and after milking."
+    }
+  },
+
+  "toda": {
+    "id": "toda",
+    "name": "Toda Buffalo",
+    "scientific_name": "Bubalus bubalis",
+    "category": "Buffalo",
+    "sub_category": "Highland & Semi-Wild Sacred Buffalo",
+    "origin": "Nilgiri Hills, Western Ghats, Tamil Nadu",
+    "native_region": "Nilgiri Plateau (Ooty, Coonoor, Kotagiri at 1,800 - 2,500m elevation in Tamil Nadu)",
+    "description": "Toda buffalo is an ancient, distinct, semi-wild highland buffalo breed endemic to the Nilgiri Hills of the Western Ghats. Reared exclusively by the indigenous Toda pastoralist tribe as sacred animals, they are characterized by their striking crescent-shaped horns, dense ash-grey fawn coat, and extraordinary adaptation to cold, high-altitude rainforests and steep mountainous terrain.",
+    "physical_traits": {
+      "coat_color": "Fawn to ash-grey with dense thick hair coat (rare among buffaloes); distinct dark chevron marking across throat and chest",
+      "horns": "Long, massive, crescent-shaped horns curving wide sideways, backwards, and outwards with sharp inward-pointing tips",
+      "body_weight": {
+        "female_adult_kg": "380 - 500 kg",
+        "male_adult_kg": "480 - 620 kg"
+      },
+      "body_structure": "Stout, low-set muscular body, broad chest, strong shoulders, hard climbing hooves designed for rocky mountain slopes",
+      "temperament": "Semi-feral, alert, fiercely independent; docile only towards indigenous Toda handlers",
+      "climate_resilience": "Superb tolerance to cold, freezing mountain mist, high rainfall (>2,500mm), and steep mountain slopes"
+    },
+    "lifespan": {
+      "average_lifespan_years": "20 - 26 years",
+      "productive_lactation_years": "14 - 18 years (completes 8 - 12 lactations)",
+      "age_at_first_calving_months": "44 - 52 months",
+      "calving_interval_months": "15 - 18 months"
+    },
+    "milk_production": {
+      "daily_yield_liters": "4 - 8 liters/day",
+      "lactation_yield_liters": "1,200 - 2,200 liters/lactation",
+      "peak_yield_liters": "7 - 10 liters/day",
+      "fat_percentage": "8.0% - 9.8% (Extremely rich in cream and butterfat)",
+      "snf_percentage": "9.8% - 10.6%",
+      "protein_percentage": "4.2% - 4.8%",
+      "lactation_length_days": 260
+    },
+    "milk_quality": {
+      "beta_casein_type": "100% pure ancestral A2 beta-casein",
+      "fat_globule_size": "Dense, large fat globules",
+      "suitability": "Sacred ceremonial ghee, rich mountain butter, traditional fermented curd, and high-fat paneer",
+      "somatic_cell_count": "Virtually zero incidence of clinical mastitis in natural shola grazing",
+      "nutritional_highlights": "High concentration of medicinal pasture phytonutrients, antioxidants, and conjugated linoleic acids from wild shola herbs"
+    },
+    "possible_diseases": [
+      {
+        "name": "Fascioliasis (Liver Fluke Disease)",
+        "severity": "High",
+        "symptoms": "Submandibular edema (bottle jaw), progressive weight loss, diarrhea, anemia",
+        "risk_factors": "Grazing near high-altitude mountain bogs and water streams harboring Lymnaea snails"
+      },
+      {
+        "name": "Foot and Mouth Disease (FMD)",
+        "severity": "Critical",
+        "symptoms": "Blisters on muzzle and interdigital space, high fever, severe lameness on steep slopes",
+        "risk_factors": "Contact with lowland migratory cattle"
+      },
+      {
+        "name": "Hemorrhagic Septicemia (HS)",
+        "severity": "High",
+        "symptoms": "High fever, throat swelling, acute respiratory distress",
+        "risk_factors": "Cold monsoon rains and humidity"
+      },
+      {
+        "name": "External Leeches & Ticks",
+        "severity": "Low",
+        "symptoms": "Blood loss, nasal leech infestation causing epistaxis (nose bleeding)",
+        "risk_factors": "Drinking from marshy highland streams"
+      },
+      {
+        "name": "Black Quarter (BQ)",
+        "severity": "High",
+        "symptoms": "Crackling muscle swelling, severe lameness, fever",
+        "risk_factors": "Soil spores in mountain pasture"
+      }
+    ],
+    "cure_and_treatment": {
+      "emergency_first_aid": "For nasal leeches: Irrigate nasal passage with 10% saline solution or tobacco decoction to dislodge leeches. For acute fluke anemia: Administer oral Triclabendazole.",
+      "veterinary_medicines": [
+        "Triclabendazole (12 mg/kg) / Oxyclozanide for liver fluke eradication",
+        "Ivermectin injection (1 ml/50 kg SC) for ticks and internal parasites",
+        "Sulfadimidine sodium / Ceftriaxone for respiratory infections",
+        "Meloxicam injections for joint and muscular pain"
+      ],
+      "supportive_care": "Iron tonic (Feritas/Imferon) for recovery from fluke anemia, Himalayan rock salt licks.",
+      "ethnoveterinary_remedies": "Traditional Toda herbal remedies: Decoction of Nilgiri eucalyptus leaves, wild turmeric, and neem oil applied to wounds."
+    },
+    "vaccination_schedule": [
+      {
+        "vaccine": "FMD Vaccine",
+        "timing": "Bi-annually (September & March)",
+        "dose_route": "2-3 ml Deep IM",
+        "importance": "Critical to protect endangered indigenous gene pool"
+      },
+      {
+        "vaccine": "HS Vaccine",
+        "timing": "Pre-Monsoon (May - June)",
+        "dose_route": "2-3 ml SC",
+        "importance": "Crucial before southwest monsoon"
+      },
+      {
+        "vaccine": "BQ Vaccine",
+        "timing": "Pre-Monsoon (May)",
+        "dose_route": "2 ml SC",
+        "importance": "Protects free-ranging mountain herds"
+      },
+      {
+        "vaccine": "Brucellosis S19",
+        "timing": "Calfhood 4-8 months",
+        "dose_route": "2 ml SC",
+        "importance": "Breed preservation biosecurity"
+      }
+    ],
+    "market_price": {
+      "currency_inr": "₹40,000 - ₹90,000",
+      "currency_usd": "$500 - $1,100",
+      "milking_cow_price_inr": "₹50,000 - ₹80,000",
+      "pregnant_heifer_price_inr": "₹35,000 - ₹55,000",
+      "pedigree_bull_price_inr": "₹60,000 - ₹1,10,000 (Sacred tribal valuation)",
+      "economic_roi": "Low maintenance costs; thrives on free shola grazing with zero grain costs; exceptional specialty ghee quality with organic niche appeal."
+    },
+    "maintenance_and_housing": {
+      "daily_feed_requirements": {
+        "green_fodder_kg": "25 - 35 kg/day (Natural grazing on Shola grasslands, Kikuyu grass, Hill bamboo, Mountain clover)",
+        "dry_fodder_kg": "3 - 5 kg/day (Hill grass hay)",
+        "concentrate_feed_kg": "0.5 - 1.5 kg/day (Concentrate supplement for lactating buffaloes: Rice bran, Groundnut cake)",
+        "mineral_mixture_grams": "40 - 60 g/day",
+        "salt_grams": "30 - 50 g/day (Free-choice rock salt licks)",
+        "clean_drinking_water_liters": "50 - 75 liters/day (Clean mountain spring water)"
+      },
+      "housing_and_shed_design": "Traditional Toda stone wall enclosure ('Tu') or simple well-drained mountain shed with wooden posts and thatch/tin roof to protect from heavy rain and wind.",
+      "summer_heat_management": "Natural cool mountain climate (temperature rarely exceeds 25°C); protect from monsoon dampness with dry bedding.",
+      "milking_hygiene_protocol": "Traditional peaceful milking, gentle udder washing with spring water, warm soothing touch."
+    }
+  }
+}
