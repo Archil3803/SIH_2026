@@ -8,6 +8,7 @@ import torch.nn.functional as F
 from torchvision import transforms
 from model import load_trained_model
 from species_detector import SpeciesDetector
+from bovine_detector import get_bovine_detector
 
 DEFAULT_MODEL_PATH = "models/cattle_classifier.pth"
 DEFAULT_CLASSES_PATH = "models/classes.json"
@@ -40,6 +41,9 @@ class CattlePredictor:
 
         # Load Species & Non-Bovine Validator
         self.species_detector = SpeciesDetector(device=self.device)
+
+        # Load Multi-Bovine Object Localization & Instance Detector
+        self.bovine_detector = get_bovine_detector()
 
         # Transforms for inference
         self.transform = transforms.Compose([
@@ -92,19 +96,21 @@ class CattlePredictor:
         else:
             raise TypeError("Unsupported image input type.")
 
-    def predict(self, image_input, top_k=3):
+    def _pil_to_base64(self, pil_img, format="JPEG", quality=90):
         """
-        Multi-tier verification & prediction pipeline:
-        1. Validates whether the image is a bovine (cattle or buffalo) vs non-bovine.
-           - If non-bovine: error 'non - bovine image detected' (no classification probabilities).
-        2. If bovine, checks if the breed is present in our 10-breed dataset.
-           - If out-of-dataset breed: error 'the given breed does not exists in our data'.
-        3. If present in dataset: performs fine-grained classification and returns full veterinary dossier.
+        Converts a PIL image into a base64 Data URL.
         """
-        pil_img = self.load_pil_image(image_input)
-        tensor = self.transform(pil_img).unsqueeze(0).to(self.device)
+        buffered = io.BytesIO()
+        pil_img.save(buffered, format=format, quality=quality)
+        b64_str = base64.b64encode(buffered.getvalue()).decode("utf-8")
+        return f"data:image/{format.lower()};base64,{b64_str}"
 
-        # Compute fine-grained breed probabilities & entropy
+    def _classify_crop(self, pil_crop, top_k=3):
+        """
+        Runs fine-grained species verification and 10-breed classification on an individual crop.
+        """
+        tensor = self.transform(pil_crop).unsqueeze(0).to(self.device)
+
         with torch.no_grad():
             logits = self.model(tensor)
             probabilities = F.softmax(logits, dim=1)[0]
@@ -114,7 +120,7 @@ class CattlePredictor:
 
         # Stage 1: Species & Bovine Verification
         species_info = self.species_detector.detect(
-            pil_img,
+            pil_crop,
             fine_grained_conf=max_prob_val,
             fine_grained_entropy=entropy
         )
@@ -129,7 +135,6 @@ class CattlePredictor:
             }
 
         # Stage 2: In-Dataset Breed Verification
-        # If the model cannot match the image with high confidence to our 10 dataset breeds
         if max_prob_val < 0.45 or entropy > 1.65:
             return {
                 "success": False,
@@ -139,7 +144,7 @@ class CattlePredictor:
                 "message": "the given breed does not exists in our data"
             }
 
-        # Stage 3: Fine-grained Bovine Breed Classification for Verified Dataset Breeds
+        # Stage 3: Fine-grained Bovine Breed Classification
         top_k = min(top_k, len(probabilities))
         top_probs, top_indices = torch.topk(probabilities, top_k)
 
@@ -160,7 +165,6 @@ class CattlePredictor:
         best_prediction = top_predictions[0]
         best_class_id = best_prediction["class_id"]
 
-        # Fetch detailed veterinary knowledge dossier
         breed_info = self.breed_db.get(best_class_id, {
             "id": best_class_id,
             "name": best_prediction["display_name"],
@@ -187,6 +191,159 @@ class CattlePredictor:
                 "is_bovine": True,
                 "detected_subject": "Bovine (Cattle / Buffalo)"
             }
+        }
+
+    def predict(self, image_input, top_k=3):
+        """
+        Multi-bovine detection & per-instance classification pipeline:
+        1. Detects all cattle and buffalo instances in the image.
+        2. For each detected instance, crops and classifies the exact breed.
+        3. Annotates the image with color-coded bounding boxes and breed labels.
+        4. If no multi-animal boxes detected, processes the full image.
+        """
+        pil_img = self.load_pil_image(image_input)
+        raw_detections = self.bovine_detector.detect_bovines(pil_img)
+
+        instances = []
+
+        if raw_detections and len(raw_detections) > 0:
+            for idx, det in enumerate(raw_detections):
+                crop = self.bovine_detector.crop_instance(pil_img, det["box"])
+                crop_res = self._classify_crop(crop, top_k=top_k)
+
+                breed_name = crop_res.get("predicted_breed", {}).get("name") if crop_res.get("success") else "Bovine (Out-of-dataset)" if crop_res.get("is_bovine") else "Non-Bovine"
+                conf_pct = crop_res.get("predicted_breed", {}).get("confidence_percent") if crop_res.get("success") else None
+
+                inst_obj = {
+                    "instance_id": idx + 1,
+                    "box": det["box"],
+                    "box_normalized": det["box_normalized"],
+                    "detector_score": det["score"],
+                    "detector_label": det["label"],
+                    "breed_name": breed_name,
+                    "confidence_percent": conf_pct,
+                    "crop_image": self._pil_to_base64(crop),
+                    "is_bovine": crop_res.get("is_bovine", False),
+                    "is_known_breed": crop_res.get("is_known_breed", False),
+                    "success": crop_res.get("success", False),
+                    "error": crop_res.get("error"),
+                    "message": crop_res.get("message"),
+                    "predicted_breed": crop_res.get("predicted_breed"),
+                    "top_candidates": crop_res.get("top_candidates", []),
+                    "breed_details": crop_res.get("breed_details", {}),
+                    "species_verification": crop_res.get("species_verification", {"is_bovine": crop_res.get("is_bovine", False)})
+                }
+                instances.append(inst_obj)
+
+            # Filter valid instances
+            valid_bovines = [inst for inst in instances if inst["is_bovine"]]
+
+            if not valid_bovines:
+                # Detections might have been false-positive non-bovines; check whole image
+                full_res = self._classify_crop(pil_img, top_k=top_k)
+                if not full_res.get("is_bovine", False):
+                    return {
+                        "success": False,
+                        "is_bovine": False,
+                        "is_known_breed": False,
+                        "total_detected": 0,
+                        "instances": [],
+                        "error": "non - bovine image detected",
+                        "message": "non - bovine image detected"
+                    }
+
+            # Generate annotated image with bounding boxes
+            annotated_pil = self.bovine_detector.draw_annotated_image(pil_img, instances)
+            annotated_b64 = self._pil_to_base64(annotated_pil)
+
+            # Select primary animal (first known breed or highest confidence)
+            known_instances = [inst for inst in instances if inst.get("is_known_breed") and inst.get("success")]
+            primary = known_instances[0] if known_instances else instances[0]
+
+            return {
+                "success": any(inst.get("success", False) for inst in instances),
+                "is_bovine": True,
+                "is_known_breed": any(inst.get("is_known_breed", False) for inst in instances),
+                "total_detected": len(instances),
+                "instances": instances,
+                "annotated_image": annotated_b64,
+                "predicted_breed": primary.get("predicted_breed"),
+                "top_candidates": primary.get("top_candidates", []),
+                "breed_details": primary.get("breed_details", {}),
+                "species_verification": {
+                    "is_bovine": True,
+                    "detected_subject": f"{len(instances)} Bovine(s) Detected"
+                }
+            }
+
+        # Case: Zero object detections -> Evaluate whole image
+        full_res = self._classify_crop(pil_img, top_k=top_k)
+
+        if not full_res.get("is_bovine", False):
+            return {
+                "success": False,
+                "is_bovine": False,
+                "is_known_breed": False,
+                "total_detected": 0,
+                "instances": [],
+                "error": "non - bovine image detected",
+                "message": "non - bovine image detected"
+            }
+
+        if not full_res.get("is_known_breed", False) or not full_res.get("success", False):
+            return {
+                "success": False,
+                "is_bovine": True,
+                "is_known_breed": False,
+                "total_detected": 1,
+                "instances": [{
+                    "instance_id": 1,
+                    "box": [0, 0, pil_img.width, pil_img.height],
+                    "box_normalized": [0.0, 0.0, 1.0, 1.0],
+                    "is_bovine": True,
+                    "is_known_breed": False,
+                    "success": False,
+                    "error": "the given breed does not exists in our data",
+                    "message": "the given breed does not exists in our data"
+                }],
+                "error": "the given breed does not exists in our data",
+                "message": "the given breed does not exists in our data"
+            }
+
+        # Single verified bovine (full image)
+        w, h = pil_img.size
+        single_inst = {
+            "instance_id": 1,
+            "box": [0, 0, w, h],
+            "box_normalized": [0.0, 0.0, 1.0, 1.0],
+            "detector_score": 1.0,
+            "detector_label": "cow",
+            "breed_name": full_res["predicted_breed"]["name"],
+            "confidence_percent": full_res["predicted_breed"]["confidence_percent"],
+            "crop_image": self._pil_to_base64(pil_img),
+            "is_bovine": True,
+            "is_known_breed": True,
+            "success": True,
+            "predicted_breed": full_res["predicted_breed"],
+            "top_candidates": full_res["top_candidates"],
+            "breed_details": full_res["breed_details"],
+            "species_verification": full_res["species_verification"]
+        }
+
+        annotated_pil = self.bovine_detector.draw_annotated_image(pil_img, [single_inst])
+        annotated_b64 = self._pil_to_base64(annotated_pil)
+
+        return {
+            "success": True,
+            "is_bovine": True,
+            "is_known_breed": True,
+            "total_detected": 1,
+            "instances": [single_inst],
+            "annotated_image": annotated_b64,
+            "predicted_breed": full_res["predicted_breed"],
+            "top_candidates": full_res["top_candidates"],
+            "breed_details": full_res["breed_details"],
+            "species_verification": full_res["species_verification"]
         }
 
 

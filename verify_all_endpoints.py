@@ -166,9 +166,39 @@ def main():
     assert "predicted_breed" not in nb_pred_res, "Must not return predicted_breed for non-bovine"
     print(f"       -> Non-Bovine Error Alert Verified: '{nb_pred_res.get('error')}' with zero probabilities returned.")
 
+    # 11. Test Multi-Bovine Detection API
+    comp_img = Image.new("RGB", (620, 300), color=(240, 240, 240))
+    img1 = Image.open(sample_path).convert("RGB").resize((300, 300))
+    comp_img.paste(img1, (0, 0))
+    comp_img.paste(img1, (320, 0))
+    comp_io = io.BytesIO()
+    comp_img.save(comp_io, format="JPEG")
+
+    comp_body = io.BytesIO()
+    comp_body.write(f"--{boundary}\r\n".encode("utf-8"))
+    comp_body.write(b'Content-Disposition: form-data; name="file"; filename="multi_cattle.jpg"\r\n')
+    comp_body.write(b"Content-Type: image/jpeg\r\n\r\n")
+    comp_body.write(comp_io.getvalue())
+    comp_body.write(f"\r\n--{boundary}--\r\n".encode("utf-8"))
+
+    status, multi_pred_bytes = test_endpoint(
+        "Predict API (Multi-Bovine Upload)",
+        f"{BASE_URL}/api/predict",
+        method="POST",
+        data=comp_body.getvalue(),
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"}
+    )
+    multi_pred_res = json.loads(multi_pred_bytes)
+    assert multi_pred_res.get("is_bovine") is True
+    assert "instances" in multi_pred_res
+    assert len(multi_pred_res["instances"]) >= 1
+    assert "annotated_image" in multi_pred_res
+    print(f"       -> Multi-Bovine API Verified: Detected {multi_pred_res.get('total_detected')} instances with bounding boxes and dossiers.")
+
     print("="*70)
     print("ALL API & SYSTEM ENDPOINTS VERIFIED AND PASSING 100%!")
     print("="*70)
 
 if __name__ == "__main__":
     main()
+

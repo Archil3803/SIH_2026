@@ -217,15 +217,31 @@
             <!-- Bovine Valid Result Spotlight & Dossier (Shown when bovine confirmed) -->
             <div id="bovine-results-wrapper">
 
+                <!-- Multi-Bovine Scene Selector Banner (Shown when multiple cattle/buffaloes detected) -->
+                <div id="multi-animal-banner" class="glass-card multi-animal-banner hidden">
+                    <div class="multi-banner-header">
+                        <div class="multi-badge"><i class="fa-solid fa-layer-group"></i> <span id="multi-detected-count">2</span> Bovines Detected</div>
+                        <h3>Multiple Cattle & Buffaloes Identified in Scene</h3>
+                        <p>Click any animal chip below to switch its individual breed genetics, milk quality, health risks, and veterinary care dossier.</p>
+                    </div>
+                    <div class="animal-chips-row" id="animal-chips-row">
+                        <!-- Populated dynamically via JS -->
+                    </div>
+                </div>
+
                 <!-- Result Hero Spotlight -->
                 <div class="glass-card spotlight-card">
                     <div class="spotlight-left">
-                        <div class="result-img-frame">
+                        <div class="result-img-frame" id="result-img-frame">
                             <img id="result-animal-img" src="" alt="Analyzed Cattle">
+                            <div class="img-view-toggle hidden" id="img-view-toggle">
+                                <button type="button" class="btn-toggle-view active" id="btn-view-annotated" title="View Full Annotated Scene with Bounding Boxes"><i class="fa-solid fa-vector-square"></i> Scene</button>
+                                <button type="button" class="btn-toggle-view" id="btn-view-crop" title="View Individual Animal Crop"><i class="fa-solid fa-crop-simple"></i> Crop</button>
+                            </div>
                             <span class="category-badge" id="res-category-badge">Dairy Cattle</span>
                         </div>
                         <div class="result-info">
-                            <div class="predicted-label">AI PREDICTED BREED</div>
+                            <div class="predicted-label" id="res-predicted-badge">AI PREDICTED BREED</div>
                             <h2 class="predicted-title" id="res-breed-name">Holstein Friesian Cattle</h2>
                             <div class="meta-pills-row">
                                 <span class="meta-pill" id="res-origin-pill"><i class="fa-solid fa-location-dot"></i> Netherlands</span>
@@ -467,6 +483,36 @@
 
             </div>
             <!-- End dossier-container -->
+
+            <!-- Multi-Animal Comparison Summary Table (Shown when multiple bovines detected) -->
+            <div id="multi-animal-table-card" class="glass-card comparison-table-card hidden">
+                <div class="card-header">
+                    <div class="header-icon"><i class="fa-solid fa-table-columns"></i></div>
+                    <div>
+                        <h2>Detected Animals Comparative Summary</h2>
+                        <p class="section-sub">Side-by-side comparison matrix for all cattle & buffaloes detected in this image</p>
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="comparison-table" id="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Preview</th>
+                                <th>Classified Breed</th>
+                                <th>Category</th>
+                                <th>Confidence</th>
+                                <th>Daily Yield</th>
+                                <th>Market Price (INR)</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-table-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
         </div>
         <!-- End bovine-results-wrapper -->

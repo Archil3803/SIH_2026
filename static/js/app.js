@@ -234,12 +234,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // 7. Render Complete Prediction & Veterinary Dossier
+    let currentPredictionResult = null;
+    let activeAnimalIndex = 0;
+    let currentImageViewMode = "annotated"; // "annotated" or "crop"
+
+    // 7. Render Complete Prediction & Multi-Animal Veterinary Dossier
     function renderPredictionResults(result) {
         resultsSection.classList.remove("hidden");
+        currentPredictionResult = result;
+        activeAnimalIndex = 0;
+        currentImageViewMode = "annotated";
 
         const nonBovineCard = document.getElementById("non-bovine-card");
         const bovineWrapper = document.getElementById("bovine-results-wrapper");
+        const multiBanner = document.getElementById("multi-animal-banner");
+        const imgViewToggle = document.getElementById("img-view-toggle");
+        const multiTableCard = document.getElementById("multi-animal-table-card");
 
         // Case A: Non-Bovine Subject
         if (result.is_bovine === false || result.error === "non - bovine image detected") {
@@ -321,24 +331,162 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Handle Confirmed Bovine Subject
+        // Handle Confirmed Bovine Subject (Single or Multiple)
         if (nonBovineCard) nonBovineCard.classList.add("hidden");
         if (bovineWrapper) bovineWrapper.classList.remove("hidden");
 
-        const breed = result.predicted_breed;
-        const details = result.breed_details;
+        const instances = result.instances && result.instances.length > 0 ? result.instances : [{
+            instance_id: 1,
+            predicted_breed: result.predicted_breed,
+            breed_details: result.breed_details,
+            top_candidates: result.top_candidates,
+            crop_image: imagePreview.src
+        }];
 
-        // Populate Spotlight Hero
-        document.getElementById("result-animal-img").src = imagePreview.src;
+        const isMulti = instances.length > 1;
+
+        // Multi-Animal Banner Setup
+        if (multiBanner) {
+            if (isMulti) {
+                multiBanner.classList.remove("hidden");
+                const countSpan = document.getElementById("multi-detected-count");
+                if (countSpan) countSpan.textContent = instances.length;
+
+                const chipsRow = document.getElementById("animal-chips-row");
+                if (chipsRow) {
+                    chipsRow.innerHTML = "";
+                    instances.forEach((inst, idx) => {
+                        const chip = document.createElement("div");
+                        chip.className = `animal-chip ${idx === 0 ? "active" : ""}`;
+                        chip.id = `animal-chip-${idx}`;
+                        const pb = inst.predicted_breed || {};
+                        const bName = pb.name || inst.breed_name || `Animal #${inst.instance_id}`;
+                        const confVal = pb.confidence_percent || inst.confidence_percent;
+
+                        chip.innerHTML = `
+                            <img src="${inst.crop_image || imagePreview.src}" class="chip-thumb" alt="Animal #${inst.instance_id}">
+                            <div class="chip-info">
+                                <span class="chip-num">Animal #${inst.instance_id}</span>
+                                <span class="chip-name">${bName}</span>
+                                <span class="chip-meta">${confVal ? confVal + '%' : (inst.is_bovine ? 'Bovine' : 'Other')}</span>
+                            </div>
+                        `;
+                        chip.addEventListener("click", () => switchAnimalInstance(idx));
+                        chipsRow.appendChild(chip);
+                    });
+                }
+            } else {
+                multiBanner.classList.add("hidden");
+            }
+        }
+
+        // Image View Switcher Toggle
+        if (imgViewToggle) {
+            if (isMulti) {
+                imgViewToggle.classList.remove("hidden");
+            } else {
+                imgViewToggle.classList.add("hidden");
+            }
+        }
+
+        // Multi-Animal Comparison Table Setup
+        if (multiTableCard) {
+            if (isMulti) {
+                multiTableCard.classList.remove("hidden");
+                const tableBody = document.getElementById("comparison-table-body");
+                if (tableBody) {
+                    tableBody.innerHTML = "";
+                    instances.forEach((inst, idx) => {
+                        const tr = document.createElement("tr");
+                        tr.id = `comparison-row-${idx}`;
+                        if (idx === 0) tr.className = "active-row";
+
+                        const pb = inst.predicted_breed || {};
+                        const bd = inst.breed_details || {};
+                        const mp = bd.milk_production || {};
+                        const econ = bd.market_price || {};
+
+                        tr.innerHTML = `
+                            <td><strong>#${inst.instance_id}</strong></td>
+                            <td><img src="${inst.crop_image || imagePreview.src}" class="table-img-thumb" alt="Animal #${inst.instance_id}"></td>
+                            <td><strong>${pb.name || inst.breed_name || 'N/A'}</strong></td>
+                            <td><span class="category-badge" style="position:static; display:inline-block;">${pb.category || 'Bovine'}</span></td>
+                            <td><strong>${pb.confidence_percent ? pb.confidence_percent + '%' : 'N/A'}</strong></td>
+                            <td>${mp.daily_yield_liters || 'N/A'}</td>
+                            <td>${econ.currency_inr || 'N/A'}</td>
+                            <td><button type="button" class="table-btn-select" onclick="window.switchAnimalInstance(${idx})"><i class="fa-solid fa-eye"></i> View Dossier</button></td>
+                        `;
+                        tableBody.appendChild(tr);
+                    });
+                }
+            } else {
+                multiTableCard.classList.add("hidden");
+            }
+        }
+
+        // Populate initial animal instance (index 0)
+        switchAnimalInstance(0);
+
+        // Reveal Results Section with smooth scroll
+        resultsSection.classList.remove("hidden");
+        resultsSection.scrollIntoView({ behavior: "smooth" });
+    }
+
+    // Switch active animal instance for multi-bovine scenes
+    function switchAnimalInstance(index) {
+        if (!currentPredictionResult) return;
+        const instances = currentPredictionResult.instances && currentPredictionResult.instances.length > 0
+            ? currentPredictionResult.instances
+            : [{
+                instance_id: 1,
+                predicted_breed: currentPredictionResult.predicted_breed,
+                breed_details: currentPredictionResult.breed_details,
+                top_candidates: currentPredictionResult.top_candidates,
+                crop_image: imagePreview.src
+            }];
+
+        if (index < 0 || index >= instances.length) return;
+        activeAnimalIndex = index;
+
+        const currentInst = instances[index];
+        const breed = currentInst.predicted_breed || currentPredictionResult.predicted_breed || {
+            name: currentInst.breed_name || "Bovine Subject",
+            category: "Bovine",
+            sub_category: "Dairy",
+            origin: "N/A",
+            confidence_percent: currentInst.confidence_percent || 90.0
+        };
+        const details = currentInst.breed_details || currentPredictionResult.breed_details || {};
+
+        // Update active chip classes
+        document.querySelectorAll(".animal-chip").forEach((c, idx) => {
+            if (idx === index) c.classList.add("active");
+            else c.classList.remove("active");
+        });
+
+        // Update active comparison table rows
+        document.querySelectorAll("#comparison-table tbody tr").forEach((r, idx) => {
+            if (idx === index) r.classList.add("active-row");
+            else r.classList.remove("active-row");
+        });
+
+        // Update Animal Image Preview (Scene vs Crop)
+        updateAnimalImageDisplay();
+
+        // Update Spotlight Header
+        const badgeLabel = document.getElementById("res-predicted-badge");
+        if (badgeLabel) {
+            badgeLabel.textContent = instances.length > 1 ? `AI PREDICTED BREED (ANIMAL #${currentInst.instance_id})` : "AI PREDICTED BREED";
+        }
         document.getElementById("res-breed-name").textContent = breed.name;
-        document.getElementById("res-category-badge").textContent = breed.category + " • " + breed.sub_category;
-        document.getElementById("res-origin-pill").innerHTML = `<i class="fa-solid fa-location-dot"></i> ${breed.origin}`;
+        document.getElementById("res-category-badge").textContent = (breed.category || "Bovine") + " • " + (breed.sub_category || "Dairy");
+        document.getElementById("res-origin-pill").innerHTML = `<i class="fa-solid fa-location-dot"></i> ${breed.origin || 'N/A'}`;
         document.getElementById("res-species-pill").innerHTML = `<i class="fa-solid fa-dna"></i> ${details.scientific_name || 'Bovine'}`;
-        document.getElementById("res-subcat-pill").innerHTML = `<i class="fa-solid fa-droplet"></i> ${breed.sub_category}`;
-        document.getElementById("res-breed-desc").textContent = details.description || "Comprehensive breed classification profile.";
+        document.getElementById("res-subcat-pill").innerHTML = `<i class="fa-solid fa-droplet"></i> ${breed.sub_category || 'Dairy'}`;
+        document.getElementById("res-breed-desc").textContent = details.description || "Comprehensive veterinary and breed classification profile.";
 
         // Confidence Gauge
-        const confPct = breed.confidence_percent;
+        const confPct = typeof breed.confidence_percent === "number" ? breed.confidence_percent : 90.0;
         document.getElementById("res-confidence-pct").textContent = confPct.toFixed(1);
         const gaugeBar = document.getElementById("gauge-bar");
         const totalCircumference = 264;
@@ -348,7 +496,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Top Candidates Probability Bars
         const candList = document.getElementById("candidates-list");
         candList.innerHTML = "";
-        (result.top_candidates || []).forEach(cand => {
+        const cands = currentInst.top_candidates && currentInst.top_candidates.length > 0
+            ? currentInst.top_candidates
+            : (currentPredictionResult.top_candidates || []);
+
+        cands.forEach(cand => {
             const candDiv = document.createElement("div");
             candDiv.className = "candidate-row";
             candDiv.innerHTML = `
@@ -511,10 +663,46 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("maint-housing-text").textContent = maint.housing_and_shed_design || "Adequate ventilation with non-slip flooring.";
         document.getElementById("maint-heat-text").textContent = maint.summer_heat_management || "Sprinklers, industrial fans, and wallowing pools.";
         document.getElementById("maint-milking-text").textContent = maint.milking_hygiene_protocol || "Strict teat dipping before and after milking.";
+    }
 
-        // Reveal Results Section with smooth scroll
-        resultsSection.classList.remove("hidden");
-        resultsSection.scrollIntoView({ behavior: "smooth" });
+    // Expose switchAnimalInstance globally for table buttons
+    window.switchAnimalInstance = switchAnimalInstance;
+
+    function updateAnimalImageDisplay() {
+        if (!currentPredictionResult) return;
+        const resultImg = document.getElementById("result-animal-img");
+        if (!resultImg) return;
+
+        const instances = currentPredictionResult.instances || [];
+        const currentInst = instances[activeAnimalIndex] || {};
+
+        if (currentImageViewMode === "crop" && currentInst.crop_image) {
+            resultImg.src = currentInst.crop_image;
+        } else {
+            resultImg.src = currentPredictionResult.annotated_image || imagePreview.src;
+        }
+    }
+
+    // View Toggle Buttons Event Listeners
+    const btnViewAnnotated = document.getElementById("btn-view-annotated");
+    const btnViewCrop = document.getElementById("btn-view-crop");
+
+    if (btnViewAnnotated) {
+        btnViewAnnotated.addEventListener("click", () => {
+            currentImageViewMode = "annotated";
+            btnViewAnnotated.classList.add("active");
+            if (btnViewCrop) btnViewCrop.classList.remove("active");
+            updateAnimalImageDisplay();
+        });
+    }
+
+    if (btnViewCrop) {
+        btnViewCrop.addEventListener("click", () => {
+            currentImageViewMode = "crop";
+            btnViewCrop.classList.add("active");
+            if (btnViewAnnotated) btnViewAnnotated.classList.remove("active");
+            updateAnimalImageDisplay();
+        });
     }
 
     // 8. Tab Navigation Logic

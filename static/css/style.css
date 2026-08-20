@@ -2592,6 +2592,232 @@ body.theme-light .android-bottom-nav {
     }
 }
 
+/* ==========================================================================
+   Multi-Bovine Instance Localization & Comparative Dashboard Styles
+   ========================================================================== */
+
+.multi-animal-banner {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.08) 0%, rgba(59, 130, 246, 0.05) 100%);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+    animation: fadeInDown 0.4s ease-out;
+}
+
+.multi-banner-header {
+    margin-bottom: 1.2rem;
+}
+
+.multi-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.3rem 0.85rem;
+    background: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: var(--primary);
+    border-radius: var(--radius-full);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.6rem;
+}
+
+.multi-banner-header h3 {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--text-primary);
+}
+
+.multi-banner-header p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.animal-chips-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.animal-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.55rem 0.9rem 0.55rem 0.55rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    user-select: none;
+}
+
+.animal-chip:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.animal-chip.active {
+    background: rgba(16, 185, 129, 0.18);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+}
+
+.chip-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.chip-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.chip-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chip-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.chip-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+/* Image View Switcher Overlay */
+.img-view-toggle {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 4px;
+    background: rgba(10, 15, 24, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 3px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    z-index: 10;
+}
+
+.btn-toggle-view {
+    padding: 0.25rem 0.6rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.72rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.btn-toggle-view.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Comparison Table Card */
+.comparison-table-card {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: var(--radius-lg);
+}
+
+.table-responsive {
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+    text-align: left;
+}
+
+.comparison-table th {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-secondary);
+    font-weight: 700;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.comparison-table td {
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.comparison-table tr:hover td {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.comparison-table tr.active-row td {
+    background: rgba(16, 185, 129, 0.08);
+}
+
+.table-img-thumb {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    object-fit: cover;
+    border: 1px solid var(--border-color);
+}
+
+.table-btn-select {
+    padding: 0.35rem 0.8rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: var(--radius-sm);
+    font-size: 0.78rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.table-btn-select:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* Print Styling for Veterinary Dossier Export */
 @media print {
     body {
@@ -2599,10 +2825,10 @@ body.theme-light .android-bottom-nav {
         color: #000 !important;
         padding-bottom: 0 !important;
     }
-    .navbar, .android-bottom-nav, .hero-banner, .classifier-grid, .catalog-section, .footer, #theme-toggle-btn, #download-mobile-btn, #print-dossier-btn, .dossier-tabs {
+    .navbar, .android-bottom-nav, .hero-banner, .classifier-grid, .catalog-section, .footer, #theme-toggle-btn, #download-mobile-btn, #print-dossier-btn, .dossier-tabs, .img-view-toggle, .table-btn-select {
         display: none !important;
     }
-    .glass-card, .info-block, .stat-card, .disease-card, .price-breakdown-card {
+    .glass-card, .info-block, .stat-card, .disease-card, .price-breakdown-card, .comparison-table-card {
         background: #fff !important;
         border: 1px solid #ddd !important;
         color: #000 !important;
@@ -2618,3 +2844,4 @@ body.theme-light .android-bottom-nav {
         -webkit-text-fill-color: initial !important;
     }
 }
+

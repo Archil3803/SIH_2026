@@ -87,7 +87,7 @@ class TestBovineSystem(unittest.TestCase):
 
         print("[PASS] Non-bovine rejection & probability suppression verified successfully.")
 
-    def test_in_dataset_breed_success(self):
+    def test_in_dataset_single_breed_success(self):
         """
         Verifies that images of breeds in the dataset successfully return full classification and dossier.
         """
@@ -102,7 +102,44 @@ class TestBovineSystem(unittest.TestCase):
         self.assertIn("predicted_breed", res)
         self.assertIn("top_candidates", res)
         self.assertIn("breed_details", res)
-        print("[PASS] In-dataset breed prediction verified successfully.")
+        self.assertIn("instances", res)
+        self.assertIn("annotated_image", res)
+        print("[PASS] In-dataset single breed prediction verified successfully.")
+
+    def test_multi_bovine_detection_and_classification(self):
+        """
+        Verifies that when multiple cattle/buffaloes are present in an image,
+        the system detects each animal instance, localizes it, crops it, and classifies its breed.
+        """
+        predictor = get_predictor()
+        samples, _ = scan_dataset("dataset")
+
+        # Select two different sample images
+        img1_path = samples[0][0]
+        img2_path = samples[min(50, len(samples) - 1)][0]
+
+        img1 = Image.open(img1_path).convert("RGB").resize((300, 300))
+        img2 = Image.open(img2_path).convert("RGB").resize((300, 300))
+
+        # Create side-by-side multi-animal composite scene
+        composite = Image.new("RGB", (620, 300), color=(240, 240, 240))
+        composite.paste(img1, (0, 0))
+        composite.paste(img2, (320, 0))
+
+        res = predictor.predict(composite)
+        self.assertTrue(res["is_bovine"])
+        self.assertIn("instances", res)
+        self.assertGreaterEqual(len(res["instances"]), 1)
+        self.assertIn("annotated_image", res)
+        self.assertIn("total_detected", res)
+
+        for inst in res["instances"]:
+            self.assertIn("instance_id", inst)
+            self.assertIn("box", inst)
+            self.assertIn("box_normalized", inst)
+            self.assertIn("crop_image", inst)
+
+        print(f"[PASS] Multi-bovine detection & per-instance classification verified ({res['total_detected']} instances).")
 
 if __name__ == "__main__":
     unittest.main()
