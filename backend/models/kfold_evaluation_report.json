@@ -1,0 +1,213 @@
+{
+  "k_folds": 5,
+  "total_samples": 2349,
+  "mean_accuracy": 88.88,
+  "std_deviation": 1.82,
+  "best_fold_accuracy": 91.79,
+  "overall_accuracy": 88.89,
+  "optimal_accuracy_ci95": [
+    87.28,
+    90.48
+  ],
+  "fold_accuracies": [
+    91.79,
+    86.86,
+    90.17,
+    87.58,
+    88.01
+  ],
+  "per_class_metrics": {
+    "chhattisgarhi": {
+      "display_name": "Chhattisgarhi Buffalo",
+      "support": 131,
+      "precision": 65.75,
+      "recall": 90.84,
+      "f1_score": 76.28
+    },
+    "gir": {
+      "display_name": "Gir Cattle",
+      "support": 353,
+      "precision": 94.33,
+      "recall": 94.33,
+      "f1_score": 94.33
+    },
+    "jaffarabadi": {
+      "display_name": "Jaffarabadi Buffalo",
+      "support": 357,
+      "precision": 92.35,
+      "recall": 87.96,
+      "f1_score": 90.1
+    },
+    "jersey_cattle": {
+      "display_name": "Jersey Cattle",
+      "support": 252,
+      "precision": 99.6,
+      "recall": 98.41,
+      "f1_score": 99.0
+    },
+    "kankrej": {
+      "display_name": "Kankrej Cattle",
+      "support": 177,
+      "precision": 98.31,
+      "recall": 98.31,
+      "f1_score": 98.31
+    },
+    "marathwada": {
+      "display_name": "Marathwada Buffalo",
+      "support": 172,
+      "precision": 88.74,
+      "recall": 77.91,
+      "f1_score": 82.97
+    },
+    "red_sindhi": {
+      "display_name": "Red Sindhi Cattle",
+      "support": 155,
+      "precision": 89.25,
+      "recall": 53.55,
+      "f1_score": 66.94
+    },
+    "sahiwal": {
+      "display_name": "Sahiwal Cattle",
+      "support": 421,
+      "precision": 84.27,
+      "recall": 96.67,
+      "f1_score": 90.04
+    },
+    "surti": {
+      "display_name": "Surti Buffalo",
+      "support": 170,
+      "precision": 78.24,
+      "recall": 88.82,
+      "f1_score": 83.2
+    },
+    "toda": {
+      "display_name": "Toda Buffalo",
+      "support": 161,
+      "precision": 96.9,
+      "recall": 77.64,
+      "f1_score": 86.21
+    }
+  },
+  "confusion_matrix": [
+    [
+      119,
+      0,
+      2,
+      0,
+      0,
+      4,
+      0,
+      0,
+      3,
+      3
+    ],
+    [
+      0,
+      333,
+      0,
+      0,
+      1,
+      0,
+      6,
+      13,
+      0,
+      0
+    ],
+    [
+      5,
+      2,
+      314,
+      1,
+      0,
+      5,
+      0,
+      0,
+      29,
+      1
+    ],
+    [
+      0,
+      0,
+      0,
+      248,
+      0,
+      0,
+      0,
+      2,
+      2,
+      0
+    ],
+    [
+      0,
+      1,
+      1,
+      0,
+      174,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      17,
+      0,
+      14,
+      0,
+      0,
+      134,
+      0,
+      0,
+      7,
+      0
+    ],
+    [
+      0,
+      9,
+      0,
+      0,
+      1,
+      1,
+      83,
+      61,
+      0,
+      0
+    ],
+    [
+      0,
+      8,
+      0,
+      0,
+      1,
+      0,
+      4,
+      407,
+      1,
+      0
+    ],
+    [
+      5,
+      0,
+      8,
+      0,
+      0,
+      6,
+      0,
+      0,
+      151,
+      0
+    ],
+    [
+      35,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      125
+    ]
+  ]
+}

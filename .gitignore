@@ -47,3 +47,6 @@ cloudflared.exe
 # OS generated files
 .DS_Store
 Thumbs.db
+
+# Agent metadata
+.agents/

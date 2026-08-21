@@ -1,0 +1,38 @@
+{
+  "class_to_idx": {
+    "chhattisgarhi": 0,
+    "gir": 1,
+    "jaffarabadi": 2,
+    "jersey_cattle": 3,
+    "kankrej": 4,
+    "marathwada": 5,
+    "red_sindhi": 6,
+    "sahiwal": 7,
+    "surti": 8,
+    "toda": 9
+  },
+  "idx_to_class": {
+    "0": "chhattisgarhi",
+    "1": "gir",
+    "2": "jaffarabadi",
+    "3": "jersey_cattle",
+    "4": "kankrej",
+    "5": "marathwada",
+    "6": "red_sindhi",
+    "7": "sahiwal",
+    "8": "surti",
+    "9": "toda"
+  },
+  "display_names": {
+    "chhattisgarhi": "Chhattisgarhi Buffalo",
+    "gir": "Gir Cattle",
+    "jaffarabadi": "Jaffarabadi Buffalo",
+    "jersey_cattle": "Jersey Cattle",
+    "kankrej": "Kankrej Cattle",
+    "marathwada": "Marathwada Buffalo",
+    "red_sindhi": "Red Sindhi Cattle",
+    "sahiwal": "Sahiwal Cattle",
+    "surti": "Surti Buffalo",
+    "toda": "Toda Buffalo"
+  }
+}
